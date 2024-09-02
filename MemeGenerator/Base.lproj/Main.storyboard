@@ -293,7 +293,7 @@
         <!--Meme View Controller-->
         <scene sceneID="hNh-kp-h28">
             <objects>
-                <viewController storyboardIdentifier="memePage" wantsFullScreenLayout="YES" id="9iy-2D-bGC" customClass="MemeViewController" customModule="MemeGeneratorDEMO" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="memePage" wantsFullScreenLayout="YES" id="9iy-2D-bGC" customClass="MemeViewController" customModule="MemeGenerator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nik-J8-IpK">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -367,7 +367,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeTemplatesCollectionViewCell" id="Kan-fz-4Ov" customClass="MemeTemplatesCollectionViewCell" customModule="MemeGeneratorDEMO" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeTemplatesCollectionViewCell" id="Kan-fz-4Ov" customClass="MemeTemplatesCollectionViewCell" customModule="MemeGenerator" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="UuF-Sz-rGK">
@@ -406,7 +406,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="jpZ-tL-1Q4"/>
-                    <navigationItem key="navigationItem" id="HJV-77-mv2"/>
+                    <navigationItem key="navigationItem" title="Home" id="HJV-77-mv2"/>
                     <connections>
                         <outlet property="collectionView" destination="r5n-pf-qry" id="zrd-hE-P5n"/>
                     </connections>
