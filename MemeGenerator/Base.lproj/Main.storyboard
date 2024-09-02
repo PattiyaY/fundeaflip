@@ -305,6 +305,65 @@
             </objects>
             <point key="canvasLocation" x="-628" y="456"/>
         </scene>
+        <!--Meme View Controller-->
+        <scene sceneID="hNh-kp-h28">
+            <objects>
+                <viewController storyboardIdentifier="memePage" wantsFullScreenLayout="YES" id="9iy-2D-bGC" customClass="MemeViewController" customModule="MemeGeneratorDEMO" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nik-J8-IpK">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZwX-fJ-3QL">
+                                <rect key="frame" x="0.0" y="59" width="393" height="698"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mna-7c-OeZ">
+                                <rect key="frame" x="287" y="767" width="90" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="PGL-BQ-S8i"/>
+                                    <constraint firstAttribute="height" constant="41" id="ag7-Mw-IIk"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Publish"/>
+                                <connections>
+                                    <action selector="saveMeme:" destination="9iy-2D-bGC" eventType="touchUpInside" id="U6l-0L-5Un"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLK-jH-oj1">
+                                <rect key="frame" x="16" y="767" width="56" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="KCz-YR-vbi"/>
+                                    <constraint firstAttribute="width" constant="56" id="lkb-Fk-241"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Text"/>
+                                <connections>
+                                    <action selector="addTextField:" destination="9iy-2D-bGC" eventType="touchUpInside" id="6Rq-KC-r6n"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZrY-4Y-qgY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZrY-4Y-qgY" firstAttribute="trailing" secondItem="mna-7c-OeZ" secondAttribute="trailing" constant="16" id="DSG-Im-rF6"/>
+                            <constraint firstItem="vLK-jH-oj1" firstAttribute="leading" secondItem="ZrY-4Y-qgY" secondAttribute="leading" constant="16" id="Mrz-MP-DxM"/>
+                            <constraint firstItem="ZwX-fJ-3QL" firstAttribute="leading" secondItem="ZrY-4Y-qgY" secondAttribute="leading" id="OBy-iq-Bh7"/>
+                            <constraint firstItem="ZwX-fJ-3QL" firstAttribute="top" secondItem="ZrY-4Y-qgY" secondAttribute="top" id="PMF-Bn-sm3"/>
+                            <constraint firstItem="ZwX-fJ-3QL" firstAttribute="trailing" secondItem="ZrY-4Y-qgY" secondAttribute="trailing" id="V3Q-Ld-Dq3"/>
+                            <constraint firstItem="vLK-jH-oj1" firstAttribute="top" secondItem="ZwX-fJ-3QL" secondAttribute="bottom" constant="10" id="XFz-LW-9vO"/>
+                            <constraint firstItem="ZrY-4Y-qgY" firstAttribute="bottom" secondItem="mna-7c-OeZ" secondAttribute="bottom" constant="10" id="gZM-YN-G4u"/>
+                            <constraint firstItem="mna-7c-OeZ" firstAttribute="top" secondItem="ZwX-fJ-3QL" secondAttribute="bottom" constant="10" id="pTm-5E-fon"/>
+                            <constraint firstItem="ZrY-4Y-qgY" firstAttribute="bottom" secondItem="vLK-jH-oj1" secondAttribute="bottom" constant="10" id="zJg-zh-uJp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="memeImage" destination="ZwX-fJ-3QL" id="kTc-PD-yLj"/>
+                        <outlet property="textButton" destination="vLK-jH-oj1" id="3RF-Hu-1KZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="stg-Zf-aid" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1239" y="-989"/>
+        </scene>
     </scenes>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>
@@ -312,7 +371,7 @@
         <image name="network" catalog="system" width="128" height="123"/>
         <image name="square.and.arrow.down" catalog="system" width="112" height="128"/>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
