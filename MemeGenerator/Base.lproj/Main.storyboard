@@ -136,7 +136,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYI-Y1-XCG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="510"/>
+                                                    <rect key="frame" x="0.0" y="5" width="393" height="505"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mpd-PX-UOI">
                                                             <rect key="frame" x="8" y="45" width="377" height="417"/>
@@ -181,7 +181,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="hYI-Y1-XCG" secondAttribute="bottom" constant="10" id="3Va-EJ-WgS"/>
                                                 <constraint firstItem="hYI-Y1-XCG" firstAttribute="leading" secondItem="U6z-LW-dGr" secondAttribute="leading" id="kYG-8V-Sn8"/>
                                                 <constraint firstAttribute="trailing" secondItem="hYI-Y1-XCG" secondAttribute="trailing" id="ueB-XE-L0u"/>
-                                                <constraint firstItem="hYI-Y1-XCG" firstAttribute="top" secondItem="U6z-LW-dGr" secondAttribute="top" id="zYL-d2-Vyv"/>
+                                                <constraint firstItem="hYI-Y1-XCG" firstAttribute="top" secondItem="U6z-LW-dGr" secondAttribute="top" constant="5" id="zYL-d2-Vyv"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
