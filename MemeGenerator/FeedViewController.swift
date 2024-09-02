@@ -11,7 +11,7 @@ import Alamofire
 class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    var memeResponse: MemeResponse? = nil
+    var memeResponse: MemeTemplates? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         
         // Fetch memes from the API
-        AF.request("https://api.imgflip.com/get_memes").responseDecodable(of: MemeResponse.self) { response in
+        AF.request("https://api.imgflip.com/get_memes").responseDecodable(of: MemeTemplates.self) { response in
             switch response.result {
             case .success(let responseData):
                 self.memeResponse = responseData
