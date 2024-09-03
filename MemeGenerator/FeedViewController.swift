@@ -27,6 +27,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 
                 // Enable large titles if desired
                 navigationController?.navigationBar.prefersLargeTitles = true
+        tableView.separatorStyle = .none
         
         tableView.dataSource = self
         tableView.delegate = self
