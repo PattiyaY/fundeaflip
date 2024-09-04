@@ -1,8 +1,10 @@
 import UIKit
+import UniformTypeIdentifiers
 import Alamofire
 import Firebase
+import MobileCoreServices
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIDocumentPickerDelegate {
 
     @IBOutlet var collectionView: UICollectionView!
     
@@ -49,6 +51,10 @@ class ViewController: UIViewController {
             }))
         }
         
+        alert.addAction(UIAlertAction(title: "Files", style: .default, handler: { _ in
+            self.presentDocumentPicker()
+        }))
+        
 //        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
 //            alert.addAction(UIAlertAction(title: "Saved Albums", style: .default, handler: { _ in
 //                self.presentImagePicker(source: .savedPhotosAlbum)
@@ -58,6 +64,13 @@ class ViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         self.present(alert, animated: true)
+    }
+    
+    private func presentDocumentPicker() {
+        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [UTType.image]) // Only allow images to be selected
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = false
+        self.present(documentPicker, animated: true, completion: nil)
     }
 
     func getTemplate(completed: @escaping () -> ()) {
@@ -80,7 +93,34 @@ class ViewController: UIViewController {
         controller.sourceType = source
         self.present(controller, animated: true)
     }
+    
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+            controller.dismiss(animated: true, completion: nil)
+        }
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+            guard let fileURL = urls.first else { return }
+            
+            // Load the image from the file URL
+            loadImage(from: fileURL)
+        }
+    
+    private func loadImage(from fileURL: URL) {
+        do {
+            let imageData = try Data(contentsOf: fileURL)
+            if let image = UIImage(data: imageData) {
+                self.selectedImage = image
+                self.showNextPageWithImage(image)
+            } else {
+                print("Failed to create image from data.")
+            }
+        } catch {
+            print("Error loading image data: \(error)")
+        }
+    }
 }
+
+
 
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
