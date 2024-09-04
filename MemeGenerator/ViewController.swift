@@ -99,11 +99,30 @@ class ViewController: UIViewController, UIDocumentPickerDelegate {
         }
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-            guard let fileURL = urls.first else { return }
-            
-            // Load the image from the file URL
-            loadImage(from: fileURL)
+        guard let selectedURL = urls.first else { return }
+        
+        // Start accessing the security-scoped resource
+        if selectedURL.startAccessingSecurityScopedResource() {
+            defer { selectedURL.stopAccessingSecurityScopedResource() } // Ensure the resource is released when done
+
+            do {
+                let imageData = try Data(contentsOf: selectedURL)
+                if let image = UIImage(data: imageData) {
+                    // Use the image in your app
+                    self.selectedImage = image
+                    print("Image loaded successfully.")
+                    self.showNextPageWithImage(image)
+                } else {
+                    print("Failed to create image from data.")
+                }
+            } catch {
+                print("Error loading image data: \(error)")
+            }
+        } else {
+            print("Permission denied to access the file.")
         }
+        
+    }
     
     private func loadImage(from fileURL: URL) {
         do {
