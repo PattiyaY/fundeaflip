@@ -2,26 +2,61 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>This app needs access to save memes to your photo library.</string>
-	<key>UIApplicationSceneManifest</key>
-	<dict>
-		<key>UIApplicationSupportsMultipleScenes</key>
-		<false/>
-		<key>UISceneConfigurations</key>
-		<dict>
-			<key>UIWindowSceneSessionRoleApplication</key>
-			<array>
-				<dict>
-					<key>UISceneConfigurationName</key>
-					<string>Default Configuration</string>
-					<key>UISceneDelegateClassName</key>
-					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
-				</dict>
-			</array>
-		</dict>
-	</dict>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>This app needs access to save memes to your photo library.</string>
+    <key>UIApplicationSceneManifest</key>
+    <dict>
+        <key>UIApplicationSupportsMultipleScenes</key>
+        <false/>
+        <key>UISceneConfigurations</key>
+        <dict>
+            <key>UIWindowSceneSessionRoleApplication</key>
+            <array>
+                <dict>
+                    <key>UISceneConfigurationName</key>
+                    <string>Default Configuration</string>
+                    <key>UISceneDelegateClassName</key>
+                    <string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+                    <key>UISceneStoryboardFile</key>
+                    <string>Main</string>
+                </dict>
+            </array>
+        </dict>
+    </dict>
+
+    <key>UIApplicationShortcutItems</key>
+    <array>
+        <dict>
+            <key>UIApplicationShortcutItemIconType</key>
+            <string>UIApplicationShortcutIconTypeSearch</string>
+            <key>UIApplicationShortcutItemSubtitle</key>
+            <string>Create memes</string>
+            <key>UIApplicationShortcutItemTitle</key>
+            <string>Home</string>
+            <key>UIApplicationShortcutItemType</key>
+            <string>com.yourapp.home</string>
+        </dict>
+        <dict>
+            <key>UIApplicationShortcutItemIconType</key>
+            <string>UIApplicationShortcutIconTypeSearch</string>
+            <key>UIApplicationShortcutItemSubtitle</key>
+            <string>Explore memes</string>
+            <key>UIApplicationShortcutItemTitle</key>
+            <string>Feed</string>
+            <key>UIApplicationShortcutItemType</key>
+            <string>com.yourapp.feed</string>
+        </dict>
+        <dict>
+            <key>UIApplicationShortcutItemIconType</key>
+            <string>UIApplicationShortcutIconTypeSearch</string>
+            <key>UIApplicationShortcutItemSubtitle</key>
+            <string>Old memes</string>
+            <key>UIApplicationShortcutItemTitle</key>
+            <string>History</string>
+            <key>UIApplicationShortcutItemType</key>
+            <string>com.yourapp.history</string>
+        </dict>
+    </array>
+
 </dict>
 </plist>

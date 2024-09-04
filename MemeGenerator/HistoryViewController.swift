@@ -9,6 +9,7 @@ import UIKit
 
 class HistoryViewController: UIViewController {
 
+    var memeResponse: MemeTemplates? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,6 +27,9 @@ class HistoryViewController: UIViewController {
                 navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
 
     /*
     // MARK: - Navigation
