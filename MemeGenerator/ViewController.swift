@@ -1,5 +1,6 @@
 import UIKit
 import Alamofire
+import Firebase
 
 class ViewController: UIViewController {
     

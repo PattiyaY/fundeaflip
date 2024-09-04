@@ -310,6 +310,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Publish"/>
                                 <connections>
+                                    <action selector="publishButton:" destination="9iy-2D-bGC" eventType="touchUpInside" id="I8O-Fe-HTg"/>
                                     <action selector="saveMeme:" destination="9iy-2D-bGC" eventType="touchUpInside" id="U6l-0L-5Un"/>
                                 </connections>
                             </button>
@@ -325,16 +326,22 @@
                                     <action selector="addTextField:" destination="9iy-2D-bGC" eventType="touchUpInside" id="6Rq-KC-r6n"/>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="WAm-jL-ntZ">
+                                <rect key="frame" x="113" y="794" width="150" height="4"/>
+                            </progressView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZrY-4Y-qgY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ZrY-4Y-qgY" firstAttribute="bottom" secondItem="WAm-jL-ntZ" secondAttribute="bottom" constant="20" id="D8Z-Pw-dJQ"/>
                             <constraint firstItem="ZrY-4Y-qgY" firstAttribute="trailing" secondItem="mna-7c-OeZ" secondAttribute="trailing" constant="16" id="DSG-Im-rF6"/>
+                            <constraint firstItem="mna-7c-OeZ" firstAttribute="leading" secondItem="WAm-jL-ntZ" secondAttribute="trailing" constant="24" id="DhQ-Ll-bau"/>
                             <constraint firstItem="vLK-jH-oj1" firstAttribute="leading" secondItem="ZrY-4Y-qgY" secondAttribute="leading" constant="16" id="Mrz-MP-DxM"/>
                             <constraint firstItem="ZwX-fJ-3QL" firstAttribute="leading" secondItem="ZrY-4Y-qgY" secondAttribute="leading" id="OBy-iq-Bh7"/>
                             <constraint firstItem="ZwX-fJ-3QL" firstAttribute="top" secondItem="ZrY-4Y-qgY" secondAttribute="top" id="PMF-Bn-sm3"/>
                             <constraint firstItem="ZwX-fJ-3QL" firstAttribute="trailing" secondItem="ZrY-4Y-qgY" secondAttribute="trailing" id="V3Q-Ld-Dq3"/>
                             <constraint firstItem="vLK-jH-oj1" firstAttribute="top" secondItem="ZwX-fJ-3QL" secondAttribute="bottom" constant="10" id="XFz-LW-9vO"/>
+                            <constraint firstItem="WAm-jL-ntZ" firstAttribute="leading" secondItem="vLK-jH-oj1" secondAttribute="trailing" constant="41" id="ekL-fx-dSe"/>
                             <constraint firstItem="ZrY-4Y-qgY" firstAttribute="bottom" secondItem="mna-7c-OeZ" secondAttribute="bottom" constant="10" id="gZM-YN-G4u"/>
                             <constraint firstItem="mna-7c-OeZ" firstAttribute="top" secondItem="ZwX-fJ-3QL" secondAttribute="bottom" constant="10" id="pTm-5E-fon"/>
                             <constraint firstItem="ZrY-4Y-qgY" firstAttribute="bottom" secondItem="vLK-jH-oj1" secondAttribute="bottom" constant="10" id="zJg-zh-uJp"/>
@@ -342,6 +349,7 @@
                     </view>
                     <connections>
                         <outlet property="memeImage" destination="ZwX-fJ-3QL" id="kTc-PD-yLj"/>
+                        <outlet property="progressView" destination="WAm-jL-ntZ" id="RV6-iZ-LcE"/>
                         <outlet property="textButton" destination="vLK-jH-oj1" id="3RF-Hu-1KZ"/>
                     </connections>
                 </viewController>

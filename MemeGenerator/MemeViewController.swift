@@ -1,14 +1,18 @@
 import UIKit
+import FirebaseStorage
 
 class MemeViewController: UIViewController {
 
     @IBOutlet weak var textButton: UIButton!
     @IBOutlet weak var memeImage: UIImageView!
     
+    @IBOutlet weak var progressView: UIProgressView!
+    
     var memeData: Meme? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        progressView.isHidden = true
 
         if let urlString = memeData?.url {
             loadImageUrl(urlString: urlString)
@@ -73,7 +77,34 @@ class MemeViewController: UIViewController {
         textView.becomeFirstResponder()
     }
 
-
+    @IBAction func publishButton(_ sender: Any) {
+        progressView.isHidden = false
+        guard let combinedImage = renderImageWithText() else {
+            print("Failed to create image.")
+            return
+        }
+        
+        let randomID = UUID.init().uuidString
+        let uploadRef = Storage.storage().reference(withPath: "memes/\(randomID).jpg")
+        guard let imageData = combinedImage.jpegData(compressionQuality: 0.75) else {return}
+        let uploadMetadata = StorageMetadata.init()
+        uploadMetadata.contentType = "image/jpeg"
+        
+        let taskReference = uploadRef.putData(imageData, metadata: uploadMetadata) { (downloadMetadata, error) in
+            if let error = error {
+                print("error \(error.localizedDescription)")
+                return
+            }
+            print("upload completed \(downloadMetadata)")
+        }
+        
+        taskReference.observe(.progress) {[weak self] (snapshot) in
+            guard let pctThere = snapshot.progress?.fractionCompleted else {return}
+            print("You are \(pctThere) complete")
+            self?.progressView.progress = Float(pctThere)
+        }
+    }
+    
     @objc func handleRemoveTap(_ sender: UIButton) {
         guard let closeView = sender.superview as? UITextView else { return }
         closeView.removeFromSuperview()
