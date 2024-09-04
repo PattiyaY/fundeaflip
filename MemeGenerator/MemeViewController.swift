@@ -9,16 +9,20 @@ class MemeViewController: UIViewController {
     @IBOutlet weak var progressView: UIProgressView!
     
     var memeData: Meme? = nil
+    var selectedImage: UIImage? // Add property to store selected image
     
     override func viewDidLoad() {
         super.viewDidLoad()
         progressView.isHidden = true
 
-        if let urlString = memeData?.url {
-            loadImageUrl(urlString: urlString)
-        } else {
-            memeImage.image = UIImage(named: "placeholder")
-        }
+        // Display the selected image or load from URL
+                if let image = selectedImage {
+                    memeImage.image = image
+                } else if let urlString = memeData?.url {
+                    loadImageUrl(urlString: urlString)
+                } else {
+                    memeImage.image = UIImage(named: "placeholder")
+                }
         
         memeImage.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))

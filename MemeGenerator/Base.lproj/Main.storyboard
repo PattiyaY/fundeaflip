@@ -366,7 +366,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="r5n-pf-qry">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <rect key="frame" x="0.0" y="152" width="393" height="617"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fRa-qK-o8u">
                                     <size key="itemSize" width="128" height="128"/>
@@ -403,12 +403,23 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gb1-CA-Ipd">
+                                <rect key="frame" x="0.0" y="103" width="123" height="41"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Select Image"/>
+                                <connections>
+                                    <action selector="selectImageButton:" destination="pWl-Jm-vQe" eventType="touchUpInside" id="PmZ-FS-Glx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Za0-FC-8we"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="r5n-pf-qry" firstAttribute="top" secondItem="Za0-FC-8we" secondAttribute="top" id="5uK-iS-tpU"/>
+                            <constraint firstItem="gb1-CA-Ipd" firstAttribute="leading" secondItem="Za0-FC-8we" secondAttribute="leading" id="71N-zY-EPP"/>
+                            <constraint firstItem="Za0-FC-8we" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gb1-CA-Ipd" secondAttribute="trailing" symbolic="YES" id="DJP-2Y-T7l"/>
+                            <constraint firstItem="gb1-CA-Ipd" firstAttribute="top" secondItem="Za0-FC-8we" secondAttribute="top" id="Rx9-Gv-kvl"/>
                             <constraint firstItem="Za0-FC-8we" firstAttribute="bottom" secondItem="r5n-pf-qry" secondAttribute="bottom" id="SCG-xG-gQt"/>
+                            <constraint firstItem="r5n-pf-qry" firstAttribute="top" secondItem="gb1-CA-Ipd" secondAttribute="bottom" constant="8" symbolic="YES" id="Vjb-Zj-JQC"/>
                             <constraint firstItem="r5n-pf-qry" firstAttribute="leading" secondItem="Za0-FC-8we" secondAttribute="leading" id="e7r-so-Nd3"/>
                             <constraint firstItem="Za0-FC-8we" firstAttribute="trailing" secondItem="r5n-pf-qry" secondAttribute="trailing" id="ycX-UR-Mqc"/>
                         </constraints>
@@ -421,7 +432,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mwi-bd-Mrs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="349" y="-989"/>
+            <point key="canvasLocation" x="348.85496183206106" y="-989.43661971830988"/>
         </scene>
     </scenes>
     <resources>
