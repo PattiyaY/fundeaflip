@@ -225,6 +225,7 @@ class MemeViewController: UIViewController {
 extension MemeViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         adjustTextViewHeight(textView)
+        textValidation(textView)
     }
     
     func adjustTextViewHeight(_ textView: UITextView) {
@@ -234,5 +235,18 @@ extension MemeViewController: UITextViewDelegate {
         var newFrame = textView.frame
         newFrame.size.height = estimatedSize.height
         textView.frame = newFrame
+    }
+    
+    func textValidation(_ textView: UITextView) {
+        // Check if text exceeds 120 characters
+        if textView.text.count > 120 {
+            // Display an alert to notify the user
+            let alert = UIAlertController(title: "Character Limit Exceeded", message: "Your text must be less than 120 characters.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                // Trim the text to 120 characters
+                textView.text = String(textView.text.prefix(120))
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
