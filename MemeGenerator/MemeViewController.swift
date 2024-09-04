@@ -1,20 +1,28 @@
 import UIKit
+import FirebaseStorage
 
 class MemeViewController: UIViewController {
 
     @IBOutlet weak var textButton: UIButton!
     @IBOutlet weak var memeImage: UIImageView!
     
+    @IBOutlet weak var progressView: UIProgressView!
+    
     var memeData: Meme? = nil
+    var selectedImage: UIImage? // Add property to store selected image
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        progressView.isHidden = true
 
-        if let urlString = memeData?.url {
-            loadImageUrl(urlString: urlString)
-        } else {
-            memeImage.image = UIImage(named: "placeholder")
-        }
+        // Display the selected image or load from URL
+                if let image = selectedImage {
+                    memeImage.image = image
+                } else if let urlString = memeData?.url {
+                    loadImageUrl(urlString: urlString)
+                } else {
+                    memeImage.image = UIImage(named: "placeholder")
+                }
         
         memeImage.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -73,7 +81,34 @@ class MemeViewController: UIViewController {
         textView.becomeFirstResponder()
     }
 
-
+    @IBAction func publishButton(_ sender: Any) {
+        progressView.isHidden = false
+        guard let combinedImage = renderImageWithText() else {
+            print("Failed to create image.")
+            return
+        }
+        
+        let randomID = UUID.init().uuidString
+        let uploadRef = Storage.storage().reference(withPath: "memes/\(randomID).jpg")
+        guard let imageData = combinedImage.jpegData(compressionQuality: 0.75) else {return}
+        let uploadMetadata = StorageMetadata.init()
+        uploadMetadata.contentType = "image/jpeg"
+        
+        let taskReference = uploadRef.putData(imageData, metadata: uploadMetadata) { (downloadMetadata, error) in
+            if let error = error {
+                print("error \(error.localizedDescription)")
+                return
+            }
+            print("upload completed \(downloadMetadata)")
+        }
+        
+        taskReference.observe(.progress) {[weak self] (snapshot) in
+            guard let pctThere = snapshot.progress?.fractionCompleted else {return}
+            print("You are \(pctThere) complete")
+            self?.progressView.progress = Float(pctThere)
+        }
+    }
+    
     @objc func handleRemoveTap(_ sender: UIButton) {
         guard let closeView = sender.superview as? UITextView else { return }
         closeView.removeFromSuperview()
@@ -190,6 +225,7 @@ class MemeViewController: UIViewController {
 extension MemeViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         adjustTextViewHeight(textView)
+        textValidation(textView)
     }
     
     func adjustTextViewHeight(_ textView: UITextView) {
@@ -199,5 +235,18 @@ extension MemeViewController: UITextViewDelegate {
         var newFrame = textView.frame
         newFrame.size.height = estimatedSize.height
         textView.frame = newFrame
+    }
+    
+    func textValidation(_ textView: UITextView) {
+        // Check if text exceeds 120 characters
+        if textView.text.count > 120 {
+            // Display an alert to notify the user
+            let alert = UIAlertController(title: "Character Limit Exceeded", message: "Your text must be less than 120 characters.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                // Trim the text to 120 characters
+                textView.text = String(textView.text.prefix(120))
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }

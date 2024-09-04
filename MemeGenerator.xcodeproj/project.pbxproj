@@ -21,6 +21,9 @@
 		6C76DD5F2C85D7260015F820 /* MemeTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C76DD5E2C85D7260015F820 /* MemeTemplate.swift */; };
 		6C76DD612C85D72C0015F820 /* MemeTemplatesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C76DD602C85D72C0015F820 /* MemeTemplatesCollectionViewCell.swift */; };
 		6C76DD632C85D7340015F820 /* MemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C76DD622C85D7340015F820 /* MemeViewController.swift */; };
+		6CD813B32C873548001D479A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6CD813B22C873548001D479A /* GoogleService-Info.plist */; };
+		6CD813B62C8736BD001D479A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6CD813B52C8736BD001D479A /* FirebaseAnalytics */; };
+		6CD813B82C874238001D479A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6CD813B72C874238001D479A /* FirebaseStorage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,7 @@
 		6C76DD5E2C85D7260015F820 /* MemeTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTemplate.swift; sourceTree = "<group>"; };
 		6C76DD602C85D72C0015F820 /* MemeTemplatesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTemplatesCollectionViewCell.swift; sourceTree = "<group>"; };
 		6C76DD622C85D7340015F820 /* MemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeViewController.swift; sourceTree = "<group>"; };
+		6CD813B22C873548001D479A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +50,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CD813B62C8736BD001D479A /* FirebaseAnalytics in Frameworks */,
 				2EB1446A2C80AA2A0092287B /* Alamofire in Frameworks */,
+				6CD813B82C874238001D479A /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +90,7 @@
 				2EB144662C80652F0092287B /* FeedViewController.swift */,
 				2ED969512C7C712B004BF926 /* Main.storyboard */,
 				2ED969542C7C712D004BF926 /* Assets.xcassets */,
+				6CD813B22C873548001D479A /* GoogleService-Info.plist */,
 				2ED969562C7C712D004BF926 /* LaunchScreen.storyboard */,
 				2ED969592C7C712D004BF926 /* Info.plist */,
 			);
@@ -108,6 +115,8 @@
 			name = MemeGenerator;
 			packageProductDependencies = (
 				2EB144692C80AA2A0092287B /* Alamofire */,
+				6CD813B52C8736BD001D479A /* FirebaseAnalytics */,
+				6CD813B72C874238001D479A /* FirebaseStorage */,
 			);
 			productName = MemeGenerator;
 			productReference = 2ED969482C7C712B004BF926 /* MemeGenerator.app */;
@@ -139,6 +148,7 @@
 			mainGroup = 2ED9693F2C7C712B004BF926;
 			packageReferences = (
 				2EB144682C80AA2A0092287B /* XCRemoteSwiftPackageReference "Alamofire" */,
+				6CD813B42C8736BD001D479A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 2ED969492C7C712B004BF926 /* Products */;
 			projectDirPath = "";
@@ -155,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2ED969552C7C712D004BF926 /* Assets.xcassets in Resources */,
+				6CD813B32C873548001D479A /* GoogleService-Info.plist in Resources */,
 				2ED969582C7C712D004BF926 /* Base in Resources */,
 				2ED969532C7C712B004BF926 /* Base in Resources */,
 			);
@@ -328,7 +339,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H8FPM8JM77;
+				DEVELOPMENT_TEAM = 3F7YMPXBUF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MemeGenerator/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -356,7 +367,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H8FPM8JM77;
+				DEVELOPMENT_TEAM = 3F7YMPXBUF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MemeGenerator/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -409,6 +420,14 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		6CD813B42C8736BD001D479A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -416,6 +435,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2EB144682C80AA2A0092287B /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		6CD813B52C8736BD001D479A /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CD813B42C8736BD001D479A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		6CD813B72C874238001D479A /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CD813B42C8736BD001D479A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
