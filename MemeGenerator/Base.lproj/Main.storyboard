@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JfB-3s-uhh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SEG-Gi-BM4">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
@@ -230,7 +230,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="EoN-kr-8X6">
             <objects>
-                <tabBarController id="JfB-3s-uhh" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="naviPage" wantsFullScreenLayout="YES" id="JfB-3s-uhh" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xhx-hT-AI5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -250,7 +250,7 @@
         <!--Home-->
         <scene sceneID="kIs-f1-MG6">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uyJ-ai-5ia" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeViewController" automaticallyAdjustsScrollViewInsets="NO" id="uyJ-ai-5ia" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="CeL-9B-TNx">
                         <imageReference key="image" image="house" catalog="system" symbolScale="default" variableValue="0.0"/>
                     </tabBarItem>
@@ -271,7 +271,7 @@
         <!--Feed-->
         <scene sceneID="dbQ-yt-5Fp">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kQ9-0m-Ihc" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FeedViewController" automaticallyAdjustsScrollViewInsets="NO" id="kQ9-0m-Ihc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Feed" image="network" catalog="system" id="py1-6B-hcA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IqK-ZN-eAX">
@@ -290,7 +290,7 @@
         <!--History-->
         <scene sceneID="6Ku-dL-Z7z">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xqH-Wl-biE" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HistoryViewController" automaticallyAdjustsScrollViewInsets="NO" id="xqH-Wl-biE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="History" image="list.bullet.rectangle" catalog="system" id="BlF-0X-5AV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lcb-Q0-yvr">
@@ -373,10 +373,25 @@
             </objects>
             <point key="canvasLocation" x="1239" y="-989"/>
         </scene>
+        <!--Secure View Controller-->
+        <scene sceneID="jUk-Jh-IbH">
+            <objects>
+                <viewController wantsFullScreenLayout="YES" id="SEG-Gi-BM4" customClass="SecureViewController" customModule="MemeGenerator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nzF-6t-fzN">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="JFn-Wp-ESv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2F2-3T-YSs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3566" y="-294"/>
+        </scene>
         <!--Home-->
         <scene sceneID="mnP-2e-Dbr">
             <objects>
-                <viewController id="pWl-Jm-vQe" customClass="ViewController" customModule="MemeGenerator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homePage" wantsFullScreenLayout="YES" id="pWl-Jm-vQe" customClass="ViewController" customModule="MemeGenerator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QCr-5b-Fgj">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -457,7 +472,7 @@
         <image name="network" catalog="system" width="128" height="123"/>
         <image name="square.and.arrow.down" catalog="system" width="112" height="128"/>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
