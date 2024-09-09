@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SEG-Gi-BM4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JfB-3s-uhh">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
@@ -143,65 +143,60 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yrY-Ym-WfE">
                                 <rect key="frame" x="0.0" y="93" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedcell" rowHeight="520" id="EGv-4J-0Uh" customClass="FeedCell" customModule="MemeGenerator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="520"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedcell" rowHeight="530" id="EGv-4J-0Uh" customClass="FeedCell" customModule="MemeGenerator" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="530"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EGv-4J-0Uh" id="U6z-LW-dGr">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="520"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="530"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYI-Y1-XCG">
-                                                    <rect key="frame" x="0.0" y="5" width="393" height="505"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mpd-PX-UOI">
-                                                            <rect key="frame" x="8" y="45" width="377" height="417"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="417" id="VnL-7I-aac"/>
-                                                                <constraint firstAttribute="width" constant="377" id="pxU-ic-KS3"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date created" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oym-aW-irA">
-                                                            <rect key="frame" x="154" y="480" width="233" height="20"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NvY-21-Wmp">
-                                                            <rect key="frame" x="8.0000000000000036" y="470" width="48.333333333333343" height="40"/>
-                                                            <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.down" catalog="system"/>
-                                                            <connections>
-                                                                <action selector="saveButtonClicked:" destination="a9t-t2-mIT" eventType="touchUpInside" id="tqb-lB-2Qz"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mpd-PX-UOI">
+                                                    <rect key="frame" x="8" y="35" width="377" height="427"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="oym-aW-irA" secondAttribute="trailing" constant="6" id="BOO-mT-EcD"/>
-                                                        <constraint firstItem="NvY-21-Wmp" firstAttribute="centerY" secondItem="oym-aW-irA" secondAttribute="centerY" id="F2y-aZ-gMA"/>
-                                                        <constraint firstItem="oym-aW-irA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NvY-21-Wmp" secondAttribute="trailing" constant="8" symbolic="YES" id="Gqn-Dt-RAr"/>
-                                                        <constraint firstAttribute="height" constant="525" id="JXA-YV-ZkT"/>
-                                                        <constraint firstItem="NvY-21-Wmp" firstAttribute="top" secondItem="Mpd-PX-UOI" secondAttribute="bottom" constant="8" id="WXT-hN-ye5"/>
-                                                        <constraint firstItem="Mpd-PX-UOI" firstAttribute="leading" secondItem="hYI-Y1-XCG" secondAttribute="leading" constant="8" id="dWn-Gb-RhA"/>
-                                                        <constraint firstItem="Mpd-PX-UOI" firstAttribute="top" secondItem="hYI-Y1-XCG" secondAttribute="top" constant="45" id="icb-IK-s9o"/>
-                                                        <constraint firstItem="NvY-21-Wmp" firstAttribute="baseline" secondItem="oym-aW-irA" secondAttribute="baseline" id="vXs-qI-m2r"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Mpd-PX-UOI" secondAttribute="trailing" constant="8" id="wio-Vc-6kn"/>
-                                                        <constraint firstAttribute="width" constant="395" id="yp3-fP-onh"/>
-                                                        <constraint firstItem="oym-aW-irA" firstAttribute="leading" secondItem="hYI-Y1-XCG" secondAttribute="leading" constant="154" id="zT0-k0-N9o"/>
-                                                        <constraint firstItem="NvY-21-Wmp" firstAttribute="leading" secondItem="hYI-Y1-XCG" secondAttribute="leading" constant="8" id="ztt-1a-feK"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="3x1-Oy-o44"/>
+                                                        <constraint firstAttribute="height" constant="417" id="VnL-7I-aac"/>
+                                                        <constraint firstAttribute="width" constant="377" id="pxU-ic-KS3"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="415" id="zXZ-Qi-pfc"/>
                                                     </constraints>
-                                                </view>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NvY-21-Wmp">
+                                                    <rect key="frame" x="324.66666666666669" y="482" width="48.333333333333314" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="qr4-7g-h3n"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.down" catalog="system">
+                                                        <color key="baseForegroundColor" red="0.37761838409999998" green="0.76942896839999997" blue="0.3616345111" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="saveButtonClicked:" destination="a9t-t2-mIT" eventType="touchUpInside" id="tqb-lB-2Qz"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date created" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oym-aW-irA">
+                                                    <rect key="frame" x="19.999999999999993" y="492" width="98.333333333333314" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="hYI-Y1-XCG" secondAttribute="bottom" constant="10" id="3Va-EJ-WgS"/>
-                                                <constraint firstItem="hYI-Y1-XCG" firstAttribute="leading" secondItem="U6z-LW-dGr" secondAttribute="leading" id="kYG-8V-Sn8"/>
-                                                <constraint firstAttribute="trailing" secondItem="hYI-Y1-XCG" secondAttribute="trailing" id="ueB-XE-L0u"/>
-                                                <constraint firstItem="hYI-Y1-XCG" firstAttribute="top" secondItem="U6z-LW-dGr" secondAttribute="top" constant="5" id="zYL-d2-Vyv"/>
+                                                <constraint firstAttribute="trailing" secondItem="NvY-21-Wmp" secondAttribute="trailing" constant="20" id="512-T3-1P6"/>
+                                                <constraint firstAttribute="bottom" secondItem="Mpd-PX-UOI" secondAttribute="bottom" constant="68" id="9JF-qe-BRC"/>
+                                                <constraint firstAttribute="trailing" secondItem="Mpd-PX-UOI" secondAttribute="trailing" constant="8" id="BEq-8M-1AB"/>
+                                                <constraint firstItem="NvY-21-Wmp" firstAttribute="top" secondItem="Mpd-PX-UOI" secondAttribute="bottom" constant="20" id="GXd-PK-13p"/>
+                                                <constraint firstItem="oym-aW-irA" firstAttribute="top" secondItem="Mpd-PX-UOI" secondAttribute="bottom" constant="30" id="NXz-ev-col"/>
+                                                <constraint firstItem="Mpd-PX-UOI" firstAttribute="leading" secondItem="U6z-LW-dGr" secondAttribute="leading" constant="8" id="SB8-wa-ewB"/>
+                                                <constraint firstItem="NvY-21-Wmp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oym-aW-irA" secondAttribute="trailing" constant="8" symbolic="YES" id="bHj-ov-Oo0"/>
+                                                <constraint firstItem="oym-aW-irA" firstAttribute="leading" secondItem="U6z-LW-dGr" secondAttribute="leadingMargin" id="fAw-ud-LF3"/>
+                                                <constraint firstItem="Mpd-PX-UOI" firstAttribute="top" secondItem="U6z-LW-dGr" secondAttribute="top" constant="35" id="tyb-LK-ueB"/>
+                                                <constraint firstItem="NvY-21-Wmp" firstAttribute="centerY" secondItem="oym-aW-irA" secondAttribute="centerY" id="vJO-If-tw3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="bgView" destination="hYI-Y1-XCG" id="nFr-zQ-Rhv"/>
+                                            <outlet property="bgView" destination="U6z-LW-dGr" id="Xa7-Fz-5fK"/>
                                             <outlet property="dateCreatedLabel" destination="oym-aW-irA" id="mqH-G8-Kss"/>
                                             <outlet property="memeImage" destination="Mpd-PX-UOI" id="fzJ-TT-U5C"/>
                                         </connections>
@@ -471,9 +466,6 @@
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <image name="network" catalog="system" width="128" height="123"/>
         <image name="square.and.arrow.down" catalog="system" width="112" height="128"/>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

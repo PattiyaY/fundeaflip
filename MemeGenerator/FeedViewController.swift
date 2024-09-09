@@ -19,53 +19,32 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tableView: UITableView!
     var memeResponse: MemeTemplates? = nil
     var imagesArray: [MemeImage] = []
+    var selectedIndexPath: IndexPath? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+            
         let appearance = UINavigationBarAppearance()
-                appearance.backgroundColor = .black // Set the background color to black
-                appearance.titleTextAttributes = [.foregroundColor: UIColor.white] // Set the title color to white
-                appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white] // Set the large title color to white
-                
-                // Apply the appearance to the navigation bar for both standard and scroll edge
-                navigationController?.navigationBar.standardAppearance = appearance
-                navigationController?.navigationBar.scrollEdgeAppearance = appearance
-                
-                // Enable large titles if desired
-                navigationController?.navigationBar.prefersLargeTitles = true
+        appearance.backgroundColor = .black // Set the background color to black
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white] // Set the title color to white
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white] // Set the large title color to white
+        
+        // Apply the appearance to the navigation bar for both standard and scroll edge
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
+        // Enable large titles if desired
+        navigationController?.navigationBar.prefersLargeTitles = true
         tableView.separatorStyle = .none
         
         tableView.dataSource = self
         tableView.delegate = self
-        
-//        // Fetch memes from the API
-//        AF.request("https://api.imgflip.com/get_memes").responseDecodable(of: MemeTemplates.self) { response in
-//            switch response.result {
-//            case .success(let responseData):
-//                self.memeResponse = responseData
-//                /*print("Successfully fetched data: \(self.memeResponse!)")*/ // Prints the fetched data
-//                self.tableView.reloadData()
-//            case .failure(let error):
-//                print("Error fetching memes: \(error)")
-//                
-//                if let data = response.data,
-//                   let errorString = String(data: data, encoding: .utf8) {
-//                    print("Response data: \(errorString)")
-//                }
-//            }
-//        }
-//        fetchImagesFromFirebase()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         fetchImagesFromFirebase()
-    }
-    
-    func downloadImage() {
-        
     }
     
     func fetchImagesFromFirebase() {
@@ -102,6 +81,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             } else if let data = data, let image = UIImage(data: data) {
                                 // Create a MemeImage object with the image and its creation date
                                 let memeImage = MemeImage(image: image, createdAt: createdAt)
+                                
                                 self?.imagesArray.append(memeImage)
                                 
                                 // Reload table view or collection view after adding new images
@@ -126,42 +106,25 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedcell", for: indexPath) as! FeedCell
                 
         cell.memeImage.image = self.imagesArray[indexPath.row].image
+        print(self.imagesArray[indexPath.row].createdAt!)
         cell.dateCreatedLabel.text = "created :  \(self.imagesArray[indexPath.row].createdAt!)"
-        
-//        if let meme = memeResponse?.data.memes[indexPath.row] {
-//            // Debugging point: Check if meme properties are correctly set
-//            print("Configuring cell for meme: \(meme.name)")
-//
-//            // Set the ID or any other text-based data
-//            cell.dateCreatedLabel.text = "created :  \(meme.id)"
-//            
-//            // Load the image from the URL asynchronously
-//            if let url = URL(string: meme.url) {
-//                URLSession.shared.dataTask(with: url) { data, response, error in
-//                    if let data = data, let image = UIImage(data: data) {
-//                        DispatchQueue.main.async {
-//                            cell.memeImage.image = image
-//                        }
-//                    } else if let error = error {
-//                        print("Error loading image: \(error)")
-//                    }
-//                }.resume()
-//            } else {
-//                print("Invalid URL: \(meme.url)")
-//            }
-//        } else {
-//            print("Meme data is nil for row \(indexPath.row)")
-//        }
         
         return cell
     }
-    
+
     
     @IBAction func saveButtonClicked(_ sender: Any) {
+        // Get the first visible indexPath (image currently at the top of the table)
+        if let firstVisibleIndexPath = tableView.indexPathsForVisibleRows?.first{
+            // Get the image from the imagesArray at that index
+            let memeImage = imagesArray[firstVisibleIndexPath.row].image
+            
+            // Save the visible image to Photos
+            UIImageWriteToSavedPhotosAlbum(memeImage, nil, nil, nil)
+            print("Image saved successfully!")
+        } else {
+            print("No visible image found.")
+        }
     }
-    
-    
-    
-    
 
 }

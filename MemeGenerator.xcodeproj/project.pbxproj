@@ -8,7 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		2E0BC9D12C88C51B004B23C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E0BC9D02C88C51B004B23C0 /* GoogleService-Info.plist */; };
-		2E42A1A02C8973CC0043A63F /* SecureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E42A19F2C8973CC0043A63F /* SecureViewController.swift */; };
+		2E8C0E092C8DA435006C34A6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E476AB22C8AD55100781E93 /* WidgetKit.framework */; };
+		2E8C0E0A2C8DA435006C34A6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E476AB42C8AD55200781E93 /* SwiftUI.framework */; };
+		2E8C0E0D2C8DA435006C34A6 /* memeWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C0E0C2C8DA435006C34A6 /* memeWidgetBundle.swift */; };
+		2E8C0E0F2C8DA435006C34A6 /* memeWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C0E0E2C8DA435006C34A6 /* memeWidget.swift */; };
+		2E8C0E112C8DA437006C34A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8C0E102C8DA437006C34A6 /* Assets.xcassets */; };
+		2E8C0E152C8DA437006C34A6 /* memeWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2E8C0E082C8DA435006C34A6 /* memeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2E8C0E1B2C8E86E1006C34A6 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C0E192C8E86DD006C34A6 /* DataProvider.swift */; };
+		2E8C0E1C2C8E870B006C34A6 /* MemeTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C76DD5E2C85D7260015F820 /* MemeTemplate.swift */; };
+		2E8C0E1E2C8E8805006C34A6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2E8C0E1D2C8E8805006C34A6 /* FirebaseAnalytics */; };
+		2E8C0E202C8E8805006C34A6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2E8C0E1F2C8E8805006C34A6 /* FirebaseFirestore */; };
+		2E8C0E222C8E8805006C34A6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2E8C0E212C8E8805006C34A6 /* FirebaseStorage */; };
+		2E8C0E242C8E8818006C34A6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2E8C0E232C8E8818006C34A6 /* Alamofire */; };
+		2E8C0E282C8E996D006C34A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E0BC9D02C88C51B004B23C0 /* GoogleService-Info.plist */; };
 		2EB1445D2C80552C0092287B /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB1445C2C80552C0092287B /* HistoryCell.swift */; };
 		2EB1445F2C80553E0092287B /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB1445E2C80553E0092287B /* FeedCell.swift */; };
 		2EB144652C80651E0092287B /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB144642C80651E0092287B /* HistoryViewController.swift */; };
@@ -27,9 +39,42 @@
 		6CD813B82C874238001D479A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6CD813B72C874238001D479A /* FirebaseStorage */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2E8C0E132C8DA437006C34A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ED969402C7C712B004BF926 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E8C0E072C8DA435006C34A6;
+			remoteInfo = memeWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2E476AC52C8AD55400781E93 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2E8C0E152C8DA437006C34A6 /* memeWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2E0BC9D02C88C51B004B23C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		2E42A19F2C8973CC0043A63F /* SecureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureViewController.swift; sourceTree = "<group>"; };
+		2E476AB22C8AD55100781E93 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		2E476AB42C8AD55200781E93 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		2E8C0DFF2C8D96D0006C34A6 /* memeWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = memeWidgetExtension.entitlements; sourceTree = "<group>"; };
+		2E8C0E002C8D970D006C34A6 /* MemeGenerator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MemeGenerator.entitlements; sourceTree = "<group>"; };
+		2E8C0E082C8DA435006C34A6 /* memeWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = memeWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E8C0E0C2C8DA435006C34A6 /* memeWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memeWidgetBundle.swift; sourceTree = "<group>"; };
+		2E8C0E0E2C8DA435006C34A6 /* memeWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memeWidget.swift; sourceTree = "<group>"; };
+		2E8C0E102C8DA437006C34A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2E8C0E122C8DA437006C34A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E8C0E192C8E86DD006C34A6 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		2EB1445C2C80552C0092287B /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		2EB1445E2C80553E0092287B /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		2EB144642C80651E0092287B /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +93,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2E8C0E052C8DA435006C34A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E8C0E0A2C8DA435006C34A6 /* SwiftUI.framework in Frameworks */,
+				2E8C0E202C8E8805006C34A6 /* FirebaseFirestore in Frameworks */,
+				2E8C0E092C8DA435006C34A6 /* WidgetKit.framework in Frameworks */,
+				2E8C0E242C8E8818006C34A6 /* Alamofire in Frameworks */,
+				2E8C0E222C8E8805006C34A6 /* FirebaseStorage in Frameworks */,
+				2E8C0E1E2C8E8805006C34A6 /* FirebaseAnalytics in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2ED969452C7C712B004BF926 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -61,10 +119,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E476AB12C8AD55100781E93 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E476AB22C8AD55100781E93 /* WidgetKit.framework */,
+				2E476AB42C8AD55200781E93 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2E8C0E0B2C8DA435006C34A6 /* memeWidget */ = {
+			isa = PBXGroup;
+			children = (
+				2E8C0E0C2C8DA435006C34A6 /* memeWidgetBundle.swift */,
+				2E8C0E0E2C8DA435006C34A6 /* memeWidget.swift */,
+				2E8C0E102C8DA437006C34A6 /* Assets.xcassets */,
+				2E8C0E122C8DA437006C34A6 /* Info.plist */,
+				2E8C0E192C8E86DD006C34A6 /* DataProvider.swift */,
+			);
+			path = memeWidget;
+			sourceTree = "<group>";
+		};
 		2ED9693F2C7C712B004BF926 = {
 			isa = PBXGroup;
 			children = (
+				2E8C0DFF2C8D96D0006C34A6 /* memeWidgetExtension.entitlements */,
 				2ED9694A2C7C712B004BF926 /* MemeGenerator */,
+				2E8C0E0B2C8DA435006C34A6 /* memeWidget */,
+				2E476AB12C8AD55100781E93 /* Frameworks */,
 				2ED969492C7C712B004BF926 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				2ED969482C7C712B004BF926 /* MemeGenerator.app */,
+				2E8C0E082C8DA435006C34A6 /* memeWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -80,6 +163,7 @@
 		2ED9694A2C7C712B004BF926 /* MemeGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				2E8C0E002C8D970D006C34A6 /* MemeGenerator.entitlements */,
 				6C76DD5E2C85D7260015F820 /* MemeTemplate.swift */,
 				2ED9694B2C7C712B004BF926 /* AppDelegate.swift */,
 				2ED9694D2C7C712B004BF926 /* SceneDelegate.swift */,
@@ -95,7 +179,6 @@
 				2E0BC9D02C88C51B004B23C0 /* GoogleService-Info.plist */,
 				2ED969562C7C712D004BF926 /* LaunchScreen.storyboard */,
 				2ED969592C7C712D004BF926 /* Info.plist */,
-				2E42A19F2C8973CC0043A63F /* SecureViewController.swift */,
 			);
 			path = MemeGenerator;
 			sourceTree = "<group>";
@@ -103,6 +186,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2E8C0E072C8DA435006C34A6 /* memeWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E8C0E162C8DA437006C34A6 /* Build configuration list for PBXNativeTarget "memeWidgetExtension" */;
+			buildPhases = (
+				2E8C0E042C8DA435006C34A6 /* Sources */,
+				2E8C0E052C8DA435006C34A6 /* Frameworks */,
+				2E8C0E062C8DA435006C34A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = memeWidgetExtension;
+			packageProductDependencies = (
+				2E8C0E1D2C8E8805006C34A6 /* FirebaseAnalytics */,
+				2E8C0E1F2C8E8805006C34A6 /* FirebaseFirestore */,
+				2E8C0E212C8E8805006C34A6 /* FirebaseStorage */,
+				2E8C0E232C8E8818006C34A6 /* Alamofire */,
+			);
+			productName = memeWidgetExtension;
+			productReference = 2E8C0E082C8DA435006C34A6 /* memeWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		2ED969472C7C712B004BF926 /* MemeGenerator */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2ED9695C2C7C712D004BF926 /* Build configuration list for PBXNativeTarget "MemeGenerator" */;
@@ -110,10 +216,12 @@
 				2ED969442C7C712B004BF926 /* Sources */,
 				2ED969452C7C712B004BF926 /* Frameworks */,
 				2ED969462C7C712B004BF926 /* Resources */,
+				2E476AC52C8AD55400781E93 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2E8C0E142C8DA437006C34A6 /* PBXTargetDependency */,
 			);
 			name = MemeGenerator;
 			packageProductDependencies = (
@@ -135,6 +243,9 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					2E8C0E072C8DA435006C34A6 = {
+						CreatedOnToolsVersion = 15.4;
+					};
 					2ED969472C7C712B004BF926 = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -158,11 +269,21 @@
 			projectRoot = "";
 			targets = (
 				2ED969472C7C712B004BF926 /* MemeGenerator */,
+				2E8C0E072C8DA435006C34A6 /* memeWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2E8C0E062C8DA435006C34A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E8C0E112C8DA437006C34A6 /* Assets.xcassets in Resources */,
+				2E8C0E282C8E996D006C34A6 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2ED969462C7C712B004BF926 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -177,6 +298,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2E8C0E042C8DA435006C34A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E8C0E1B2C8E86E1006C34A6 /* DataProvider.swift in Sources */,
+				2E8C0E1C2C8E870B006C34A6 /* MemeTemplate.swift in Sources */,
+				2E8C0E0D2C8DA435006C34A6 /* memeWidgetBundle.swift in Sources */,
+				2E8C0E0F2C8DA435006C34A6 /* memeWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2ED969442C7C712B004BF926 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -184,7 +316,6 @@
 				2ED969502C7C712B004BF926 /* ViewController.swift in Sources */,
 				2EB1445F2C80553E0092287B /* FeedCell.swift in Sources */,
 				2ED9694C2C7C712B004BF926 /* AppDelegate.swift in Sources */,
-				2E42A1A02C8973CC0043A63F /* SecureViewController.swift in Sources */,
 				6C76DD5F2C85D7260015F820 /* MemeTemplate.swift in Sources */,
 				2EB1445D2C80552C0092287B /* HistoryCell.swift in Sources */,
 				2EB144652C80651E0092287B /* HistoryViewController.swift in Sources */,
@@ -196,6 +327,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2E8C0E142C8DA437006C34A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E8C0E072C8DA435006C34A6 /* memeWidgetExtension */;
+			targetProxy = 2E8C0E132C8DA437006C34A6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2ED969512C7C712B004BF926 /* Main.storyboard */ = {
@@ -217,6 +356,62 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2E8C0E172C8DA437006C34A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H8FPM8JM77;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = memeWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = memeWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Pattiya.MemeGenerator.memeWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2E8C0E182C8DA437006C34A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H8FPM8JM77;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = memeWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = memeWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Pattiya.MemeGenerator.memeWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		2ED9695A2C7C712D004BF926 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -339,14 +534,19 @@
 		2ED9695D2C7C712D004BF926 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MemeGenerator/MemeGenerator.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H8FPM8JM77;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MemeGenerator/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to the camera to allow you to capture photos.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We use Face ID to secure your account.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app needs access to save memes to your photo library.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -357,7 +557,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Pattiya.MemeGenerator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Pattiya.MemeGenerator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -369,14 +569,19 @@
 		2ED9695E2C7C712D004BF926 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MemeGenerator/MemeGenerator.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H8FPM8JM77;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MemeGenerator/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to the camera to allow you to capture photos.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We use Face ID to secure your account.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app needs access to save memes to your photo library.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -387,7 +592,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Pattiya.MemeGenerator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Pattiya.MemeGenerator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -399,6 +604,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2E8C0E162C8DA437006C34A6 /* Build configuration list for PBXNativeTarget "memeWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E8C0E172C8DA437006C34A6 /* Debug */,
+				2E8C0E182C8DA437006C34A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2ED969432C7C712B004BF926 /* Build configuration list for PBXProject "MemeGenerator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -439,6 +653,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2E8C0E1D2C8E8805006C34A6 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CD813B42C8736BD001D479A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		2E8C0E1F2C8E8805006C34A6 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CD813B42C8736BD001D479A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		2E8C0E212C8E8805006C34A6 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CD813B42C8736BD001D479A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		2E8C0E232C8E8818006C34A6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2EB144682C80AA2A0092287B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		2EB144692C80AA2A0092287B /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2EB144682C80AA2A0092287B /* XCRemoteSwiftPackageReference "Alamofire" */;

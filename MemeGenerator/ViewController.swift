@@ -3,18 +3,22 @@ import UniformTypeIdentifiers
 import Alamofire
 import Firebase
 import MobileCoreServices
+import UserNotifications
+import FirebaseStorage
 
+var MEME_TEMPLATES = [Meme]() // Global variable
 class ViewController: UIViewController, UIDocumentPickerDelegate {
 
     @IBOutlet var collectionView: UICollectionView!
     
     var selectedImage: UIImage?
 
-    var memeTemplates = [Meme]()
     var imagePickerController: UIImagePickerController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        checkForPermission()
         
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .black
@@ -25,11 +29,118 @@ class ViewController: UIViewController, UIDocumentPickerDelegate {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.prefersLargeTitles = true
         
+//        fetchAndStoreImages()
+
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        
         getTemplate {
             self.collectionView.reloadData()
+        }
+        
+        
+    }
+    
+    // Function to fetch images from Firebase Storage and store them in UserDefaults
+    func fetchAndStoreImages() {
+        let storageRef = Storage.storage().reference(withPath: "memes")
+        
+        storageRef.listAll { (result, error) in
+            if let error = error {
+                print("Error listing files in directory: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let result = result else { return }
+            
+            var imagesData: [Data] = []
+            let dispatchGroup = DispatchGroup()
+            
+            for item in result.items {
+                dispatchGroup.enter()
+                
+                item.getData(maxSize: 4 * 1024 * 1024) { (data, error) in
+                    if let error = error {
+                        print("Error downloading image: \(error.localizedDescription)")
+                    } else if let data = data {
+                        imagesData.append(data)
+                    }
+                    dispatchGroup.leave()
+                }
+            }
+            
+            dispatchGroup.notify(queue: .main) {
+                // Store only the latest 10 images
+                let recentImagesData = Array(imagesData.prefix(10))
+                UserDefaults.standard.set(recentImagesData, forKey: "widgetImages")
+                print("Yo")
+                print(recentImagesData)
+            }
+        }
+    }
+    
+    func checkForPermission(){
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.getNotificationSettings { settings in
+            switch settings.authorizationStatus {
+            case .authorized:
+                print("Permissions granted")
+                self.dispatchNotification()
+            case .denied:
+                print("Permissions denied")
+                return
+            case .notDetermined:
+                notificationCenter.requestAuthorization(options: [.alert, .sound]) { didAllow, error  in
+                    if didAllow {
+                        print("User granted permission")
+                        self.dispatchNotification()
+                    }
+                }
+            default:
+                return
+            }
+        }
+    }
+
+    func dispatchNotification() {
+        let identifier = "Create meme notification"
+        let title = "Create your funny meme!"
+        let body = "Time to share creativity to the world!"
+        let isDaily = true
+        let hour = 9 // 9:00 AM
+        let minute = 0
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+
+        // Create the notification content
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        content.sound = .default
+
+        // Configure the date components for 9:00 AM every day
+        var dateComponents = DateComponents()
+        dateComponents.hour = hour
+        dateComponents.minute = minute
+        
+        // Create the trigger for daily notifications at 9:00 AM
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+         
+        // Testing : Set trigger time to 1 minute from now
+        // let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: isDaily) // 60 seconds = 1 minute
+
+        // Create notification request
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+
+        // Remove old notifications and add the new one
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
+        notificationCenter.add(request) { error in
+            if let error = error {
+                print("Error adding notification: \(error.localizedDescription)")
+            } else {
+                print("Notification scheduled for 1 minute from now.")
+            }
         }
     }
 
@@ -55,12 +166,6 @@ class ViewController: UIViewController, UIDocumentPickerDelegate {
             self.presentDocumentPicker()
         }))
         
-//        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
-//            alert.addAction(UIAlertAction(title: "Saved Albums", style: .default, handler: { _ in
-//                self.presentImagePicker(source: .savedPhotosAlbum)
-//            }))
-//        }
-        
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         self.present(alert, animated: true)
@@ -77,16 +182,17 @@ class ViewController: UIViewController, UIDocumentPickerDelegate {
         let url = "https://api.imgflip.com/get_memes"
         AF.request(url).responseDecodable(of: MemeTemplates.self) { response in
             switch response.result {
-            case .success(let memeTemplate):
-                self.memeTemplates = memeTemplate.data.memes
+            case .success(let memeTemplates):
+                MEME_TEMPLATES = memeTemplates.data.memes // Access the array from the decoded response
                 DispatchQueue.main.async {
                     completed()
                 }
             case .failure(let error):
-                print(error)
+                print("Failed to fetch meme templates: \(error)")
             }
         }
     }
+
     
     private func presentImagePicker(source: UIImagePickerController.SourceType) {
         guard let controller = self.imagePickerController else { return }
@@ -95,22 +201,19 @@ class ViewController: UIViewController, UIDocumentPickerDelegate {
     }
     
     func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-            controller.dismiss(animated: true, completion: nil)
-        }
+        controller.dismiss(animated: true, completion: nil)
+    }
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         guard let selectedURL = urls.first else { return }
         
-        // Start accessing the security-scoped resource
         if selectedURL.startAccessingSecurityScopedResource() {
-            defer { selectedURL.stopAccessingSecurityScopedResource() } // Ensure the resource is released when done
+            defer { selectedURL.stopAccessingSecurityScopedResource() }
 
             do {
                 let imageData = try Data(contentsOf: selectedURL)
                 if let image = UIImage(data: imageData) {
-                    // Use the image in your app
                     self.selectedImage = image
-                    print("Image loaded successfully.")
                     self.showNextPageWithImage(image)
                 } else {
                     print("Failed to create image from data.")
@@ -121,7 +224,6 @@ class ViewController: UIViewController, UIDocumentPickerDelegate {
         } else {
             print("Permission denied to access the file.")
         }
-        
     }
     
     private func loadImage(from fileURL: URL) {
@@ -139,13 +241,11 @@ class ViewController: UIViewController, UIDocumentPickerDelegate {
     }
 }
 
-
-
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         let memePage = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "memePage") as! MemeViewController
-        let meme = memeTemplates[indexPath.row]
+        let meme = MEME_TEMPLATES[indexPath.row] // Use global variable
 
         memePage.title = "\(meme.name)"
         memePage.memeData = meme
@@ -156,12 +256,12 @@ extension ViewController: UICollectionViewDelegate {
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return memeTemplates.count
+        return MEME_TEMPLATES.count // Use global variable
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemeTemplatesCollectionViewCell.identifier, for: indexPath) as! MemeTemplatesCollectionViewCell
-        let meme = memeTemplates[indexPath.row]
+        let meme = MEME_TEMPLATES[indexPath.row] // Use global variable
         cell.configure(urlString: meme.url)
         return cell
     }
@@ -173,13 +273,11 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             return imagePickerControllerDidCancel(picker)
         }
         
-        self.selectedImage = image // Store the selected image
+        self.selectedImage = image
         
         picker.dismiss(animated: true) {
             picker.delegate = nil
             self.imagePickerController = nil
-            
-            // Navigate to the next page or perform the required action
             self.showNextPageWithImage(image)
         }
     }
@@ -194,9 +292,8 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     private func showNextPageWithImage(_ image: UIImage) {
         let memePage = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "memePage") as! MemeViewController
         memePage.title = "Your Selected Image"
-        memePage.selectedImage = image // Pass the selected image to the next view controller
+        memePage.selectedImage = image
         
         self.navigationController?.pushViewController(memePage, animated: true)
     }
 }
-

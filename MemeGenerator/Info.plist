@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSFaceIDUsageDescription</key>
-	<string>We use Face ID to secure your account.</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>This app needs access to save memes to your photo library.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -58,7 +54,5 @@
 			<string>historypage</string>
 		</dict>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>This app requires access to the camera to allow you to capture photos.</string>
 </dict>
 </plist>
