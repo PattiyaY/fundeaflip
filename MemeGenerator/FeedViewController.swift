@@ -4,10 +4,11 @@
 //
 //  Created by Pattiya Yiadram on 29/8/24.
 //
-
+import Foundation
 import UIKit
 import Alamofire
 import FirebaseStorage
+import SwiftUI
 
 struct MemeImage {
     let image: UIImage
@@ -99,7 +100,6 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return imagesArray.count
-//        return memeResponse?.data.memes.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,10 +107,53 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 
         cell.memeImage.image = self.imagesArray[indexPath.row].image
         print(self.imagesArray[indexPath.row].createdAt!)
-        cell.dateCreatedLabel.text = "created :  \(self.imagesArray[indexPath.row].createdAt!)"
+        // Assuming createdAt is of type Date
+        if let createdAtDate = self.imagesArray[indexPath.row].createdAt {
+            let timeAgo = timeAgoSinceDate(createdAtDate, numericDates: true)
+            cell.dateCreatedLabel.text = "\(timeAgo)"
+        }
+
         
         return cell
     }
+
+    // Function to convert date to "time ago" format
+    func timeAgoSinceDate(_ date: Date, numericDates: Bool) -> String {
+        let calendar = Calendar.current
+        let now = Date()
+        let components = calendar.dateComponents([.year, .month, .weekOfYear, .day, .hour, .minute, .second], from: date, to: now)
+
+        if let year = components.year, year >= 2 {
+            return "\(year) years ago"
+        } else if let year = components.year, year >= 1 {
+            return numericDates ? "1 year ago" : "Last year"
+        } else if let month = components.month, month >= 2 {
+            return "\(month) months ago"
+        } else if let month = components.month, month >= 1 {
+            return numericDates ? "1 month ago" : "Last month"
+        } else if let week = components.weekOfYear, week >= 2 {
+            return "\(week) weeks ago"
+        } else if let week = components.weekOfYear, week >= 1 {
+            return numericDates ? "1 week ago" : "Last week"
+        } else if let day = components.day, day >= 2 {
+            return "\(day) days ago"
+        } else if let day = components.day, day >= 1 {
+            return numericDates ? "1 day ago" : "Yesterday"
+        } else if let hour = components.hour, hour >= 2 {
+            return "\(hour) hours ago"
+        } else if let hour = components.hour, hour >= 1 {
+            return numericDates ? "1 hour ago" : "An hour ago"
+        } else if let minute = components.minute, minute >= 2 {
+            return "\(minute) minutes ago"
+        } else if let minute = components.minute, minute >= 1 {
+            return numericDates ? "1 minute ago" : "A minute ago"
+        } else if let second = components.second, second >= 3 {
+            return "\(second) seconds ago"
+        } else {
+            return "Just now"
+        }
+    }
+
 
     
     @IBAction func saveButtonClicked(_ sender: Any) {
@@ -122,6 +165,11 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
             // Save the visible image to Photos
             UIImageWriteToSavedPhotosAlbum(memeImage, nil, nil, nil)
             print("Image saved successfully!")
+            let alert = UIAlertController(title: "Image", message: "Image saved successfully!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+            self.present(alert, animated: true, completion: nil)
+
         } else {
             print("No visible image found.")
         }

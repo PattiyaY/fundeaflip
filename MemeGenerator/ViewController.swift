@@ -125,7 +125,7 @@ class ViewController: UIViewController, UIDocumentPickerDelegate {
         dateComponents.minute = minute
         
         // Create the trigger for daily notifications at 9:00 AM
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: isDaily)
          
         // Testing : Set trigger time to 1 minute from now
         // let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: isDaily) // 60 seconds = 1 minute
@@ -149,25 +149,25 @@ class ViewController: UIViewController, UIDocumentPickerDelegate {
         imagePickerController?.delegate = self
         
         let alert = UIAlertController(title: "Select Source Type", message: nil, preferredStyle: .actionSheet)
-        
+
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("camera_title", comment: "Title for the camera action"), style: .default, handler: { _ in
                 self.presentImagePicker(source: .camera)
             }))
         }
-        
+
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            alert.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { _ in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("photo_library_title", comment: "Title for the photo library action"), style: .default, handler: { _ in
                 self.presentImagePicker(source: .photoLibrary)
             }))
         }
-        
-        alert.addAction(UIAlertAction(title: "Files", style: .default, handler: { _ in
+
+        alert.addAction(UIAlertAction(title: NSLocalizedString("files_title", comment: "Title for the files action"), style: .default, handler: { _ in
             self.presentDocumentPicker()
         }))
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
+
+        alert.addAction(UIAlertAction(title: NSLocalizedString("cancel_action", comment: "Title for the cancel action"), style: .cancel, handler: nil))
+
         self.present(alert, animated: true)
     }
     

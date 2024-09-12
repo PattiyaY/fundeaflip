@@ -1,0 +1,62 @@
+
+/* Class = "UITabBarItem"; title = "History"; ObjectID = "BlF-0X-5AV"; */
+"BlF-0X-5AV.title" = "History";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "CeL-9B-TNx"; */
+"CeL-9B-TNx.title" = "Home";
+
+/* Class = "UINavigationItem"; title = "Home"; ObjectID = "HJV-77-mv2"; */
+"HJV-77-mv2.title" = "Home";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "MJZ-cs-IWf"; */
+"MJZ-cs-IWf.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "NvY-21-Wmp"; */
+"NvY-21-Wmp.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; title = "History"; ObjectID = "QZQ-u4-OXj"; */
+"QZQ-u4-OXj.title" = "History";
+
+/* Class = "UILabel"; text = "Save meme"; ObjectID = "SXp-kI-h3Y"; */
+"SXp-kI-h3Y.text" = "Save meme";
+
+/* Class = "UILabel"; text = "Date :"; ObjectID = "YZk-ny-MUT"; */
+"YZk-ny-MUT.text" = "Date :";
+
+/* Class = "UILabel"; text = "Time :"; ObjectID = "a9H-7i-Wbg"; */
+"a9H-7i-Wbg.text" = "Time :";
+
+/* Class = "UIButton"; configuration.title = "Select Image"; ObjectID = "gb1-CA-Ipd"; */
+"gb1-CA-Ipd.configuration.title" = "Select Image";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "gb1-CA-Ipd"; */
+"gb1-CA-Ipd.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Meme name"; ObjectID = "hnQ-UN-Bfh"; */
+"hnQ-UN-Bfh.text" = "Meme name";
+
+/* Class = "UINavigationItem"; title = "Feed"; ObjectID = "jae-hq-upV"; */
+"jae-hq-upV.title" = "Feed";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "jpZ-tL-1Q4"; */
+"jpZ-tL-1Q4.title" = "Home";
+
+/* Class = "UIButton"; configuration.title = "Publish"; ObjectID = "mna-7c-OeZ"; */
+"mna-7c-OeZ.configuration.title" = "Publish";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mna-7c-OeZ"; */
+"mna-7c-OeZ.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Date created"; ObjectID = "oym-aW-irA"; */
+"oym-aW-irA.text" = "Date created";
+
+/* Class = "UITabBarItem"; title = "Feed"; ObjectID = "py1-6B-hcA"; */
+"py1-6B-hcA.title" = "Feed";
+
+/* Class = "UIButton"; configuration.title = "Text"; ObjectID = "vLK-jH-oj1"; */
+"vLK-jH-oj1.configuration.title" = "Text";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "vLK-jH-oj1"; */
+"vLK-jH-oj1.normalTitle" = "Button";
+
+"camera_title" = "Camera";
