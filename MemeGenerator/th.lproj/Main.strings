@@ -14,7 +14,6 @@
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "NvY-21-Wmp"; */
 "NvY-21-Wmp.normalTitle" = "ปุ่ม";
 
-
 /* Class = "UILabel"; text = "Save meme"; ObjectID = "SXp-kI-h3Y"; */
 "SXp-kI-h3Y.text" = "บันทึกมีม";
 
@@ -45,9 +44,6 @@
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mna-7c-OeZ"; */
 "mna-7c-OeZ.normalTitle" = "ปุ่ม";
 
-/* Class = "UILabel"; text = "Date created"; ObjectID = "oym-aW-irA"; */
-"oym-aW-irA.text" = "วันที่สร้าง";
-
 /* Class = "UITabBarItem"; title = "Feed"; ObjectID = "py1-6B-hcA"; */
 "py1-6B-hcA.title" = "ฟีด";
 
@@ -57,10 +53,5 @@
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "vLK-jH-oj1"; */
 "vLK-jH-oj1.normalTitle" = "ปุ่ม";
 
-"select_source_type" = "เลือกแหล่งที่มา";
-"camera_title" = "กล้อง";
-"photo_library_title" = "คลังภาพ";
-"files_title" = "ไฟล์";
-"cancel_action" = "ยกเลิก";
-
-
+/* Class = "UILabel"; text = "Create your own meme"; ObjectID = "lIE-Fg-9bN"; */
+"lIE-Fg-9bN.text" = "สร้างมีมของคุณ";

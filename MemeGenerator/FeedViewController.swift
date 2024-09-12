@@ -47,6 +47,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewWillAppear(animated)
         
         fetchImagesFromFirebase()
+        tableView.reloadData()
     }
     
     func fetchImagesFromFirebase() {
@@ -126,7 +127,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let locale = Locale.current
         let languageCode = locale.language.languageCode?.identifier ?? "en"
-
+print(languageCode)
         let timeAgoStrings: [String: String] = [
             "year": languageCode == "th" ? "ปีที่ผ่านมา" : "year ago",
             "month": languageCode == "th" ? "เดือนที่ผ่านมา" : "month ago",

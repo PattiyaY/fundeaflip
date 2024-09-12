@@ -10,11 +10,10 @@ var MEME_TEMPLATES = [Meme]() // Global variable
 class ViewController: UIViewController, UIDocumentPickerDelegate {
 
     @IBOutlet var collectionView: UICollectionView!
-    
     var selectedImage: UIImage?
-
     var imagePickerController: UIImagePickerController?
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -321,6 +320,8 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         let locale = Locale.current
         let languageCode = locale.language.languageCode?.identifier ?? "en"
 
+//        print(languageCode)
+        
         if languageCode == "th" {
             memePage.title = "ภาพที่คุณเลือก"
             memePage.selectedImage = image
