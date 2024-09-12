@@ -57,15 +57,10 @@
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "vLK-jH-oj1"; */
 "vLK-jH-oj1.normalTitle" = "ปุ่ม";
 
-/* Camera title in UIImagePickerController */
+"select_source_type" = "เลือกแหล่งที่มา";
 "camera_title" = "กล้อง";
-
-/* Photo Library title */
-"photo_library_title" = "คลังรูปภาพ";
-
-/* Files title */
+"photo_library_title" = "คลังภาพ";
 "files_title" = "ไฟล์";
-
-/* Cancel action */
 "cancel_action" = "ยกเลิก";
+
 

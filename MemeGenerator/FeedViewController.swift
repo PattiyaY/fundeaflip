@@ -40,6 +40,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -122,37 +123,56 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let calendar = Calendar.current
         let now = Date()
         let components = calendar.dateComponents([.year, .month, .weekOfYear, .day, .hour, .minute, .second], from: date, to: now)
+        
+        let locale = Locale.current
+        let languageCode = locale.language.languageCode?.identifier ?? "en"
 
+        let timeAgoStrings: [String: String] = [
+            "year": languageCode == "th" ? "ปีที่ผ่านมา" : "year ago",
+            "month": languageCode == "th" ? "เดือนที่ผ่านมา" : "month ago",
+            "week": languageCode == "th" ? "สัปดาห์ที่ผ่านมา" : "week ago",
+            "day": languageCode == "th" ? "วันที่ผ่านมา" : "day ago",
+            "hour": languageCode == "th" ? "ชั่วโมงที่ผ่านมา" : "hour ago",
+            "minute": languageCode == "th" ? "นาทีที่ผ่านมา" : "minute ago",
+            "second": languageCode == "th" ? "วินาทีที่ผ่านมา" : "second ago",
+            "justNow": languageCode == "th" ? "เพิ่งตอนนี้" : "Just now",
+            "yesterday": languageCode == "th" ? "เมื่อวานนี้" : "Yesterday",
+            "anHourAgo": languageCode == "th" ? "หนึ่งชั่วโมงที่ผ่านมา" : "An hour ago",
+            "aMinuteAgo": languageCode == "th" ? "หนึ่งนาทีที่ผ่านมา" : "A minute ago"
+        ]
+        
         if let year = components.year, year >= 2 {
-            return "\(year) years ago"
+            return "\(year) \(timeAgoStrings["year"]!)"
         } else if let year = components.year, year >= 1 {
-            return numericDates ? "1 year ago" : "Last year"
+            return numericDates ? "1 \(timeAgoStrings["year"]!)" : "เมื่อปีที่แล้ว"
         } else if let month = components.month, month >= 2 {
-            return "\(month) months ago"
+            return "\(month) \(timeAgoStrings["month"]!)"
         } else if let month = components.month, month >= 1 {
-            return numericDates ? "1 month ago" : "Last month"
+            return numericDates ? "1 \(timeAgoStrings["month"]!)" : "เมื่อเดือนที่แล้ว"
         } else if let week = components.weekOfYear, week >= 2 {
-            return "\(week) weeks ago"
+            return "\(week) \(timeAgoStrings["week"]!)"
         } else if let week = components.weekOfYear, week >= 1 {
-            return numericDates ? "1 week ago" : "Last week"
+            return numericDates ? "1 \(timeAgoStrings["week"]!)" : "สัปดาห์ที่แล้ว"
         } else if let day = components.day, day >= 2 {
-            return "\(day) days ago"
+            return "\(day) \(timeAgoStrings["day"]!)"
         } else if let day = components.day, day >= 1 {
-            return numericDates ? "1 day ago" : "Yesterday"
+            return numericDates ? "1 \(timeAgoStrings["day"]!)" : timeAgoStrings["yesterday"]!
         } else if let hour = components.hour, hour >= 2 {
-            return "\(hour) hours ago"
+            return "\(hour) \(timeAgoStrings["hour"]!)"
         } else if let hour = components.hour, hour >= 1 {
-            return numericDates ? "1 hour ago" : "An hour ago"
+            return numericDates ? "1 \(timeAgoStrings["hour"]!)" : timeAgoStrings["anHourAgo"]!
         } else if let minute = components.minute, minute >= 2 {
-            return "\(minute) minutes ago"
+            return "\(minute) \(timeAgoStrings["minute"]!)"
         } else if let minute = components.minute, minute >= 1 {
-            return numericDates ? "1 minute ago" : "A minute ago"
+            return numericDates ? "1 \(timeAgoStrings["minute"]!)" : timeAgoStrings["aMinuteAgo"]!
         } else if let second = components.second, second >= 3 {
-            return "\(second) seconds ago"
+            return "\(second) \(timeAgoStrings["second"]!)"
         } else {
-            return "Just now"
+            return timeAgoStrings["justNow"]!
         }
     }
+
+
 
 
     

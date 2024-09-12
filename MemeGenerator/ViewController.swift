@@ -145,31 +145,58 @@ class ViewController: UIViewController, UIDocumentPickerDelegate {
     }
 
     @IBAction func selectImageButton(_ sender: Any) {
-        imagePickerController = UIImagePickerController() // Initialize the Image Picker Controller
+        imagePickerController = UIImagePickerController()
         imagePickerController?.delegate = self
-        
-        let alert = UIAlertController(title: "Select Source Type", message: nil, preferredStyle: .actionSheet)
+        let locale = Locale.current
+        let languageCode = locale.language.languageCode?.identifier ?? "en"
 
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            alert.addAction(UIAlertAction(title: NSLocalizedString("camera_title", comment: "Title for the camera action"), style: .default, handler: { _ in
-                self.presentImagePicker(source: .camera)
+        if languageCode == "th" {
+            let alert = UIAlertController(title: NSLocalizedString("select_source_type", tableName: nil, bundle: .main, value: "เลือกแหล่งที่มา", comment: "Title for source selection alert"), message: nil, preferredStyle: .actionSheet)
+
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                alert.addAction(UIAlertAction(title: NSLocalizedString("camera_title", tableName: nil, bundle: .main, value: "กล้อง", comment: "Title for the camera action"), style: .default, handler: { _ in
+                    self.presentImagePicker(source: .camera)
+                }))
+            }
+
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                alert.addAction(UIAlertAction(title: NSLocalizedString("photo_library_title", tableName: nil, bundle: .main, value: "รูปภาพ", comment: "Title for the photo library action"), style: .default, handler: { _ in
+                    self.presentImagePicker(source: .photoLibrary)
+                }))
+            }
+
+            alert.addAction(UIAlertAction(title: NSLocalizedString("files_title", tableName: nil, bundle: .main, value: "ไฟล์", comment: "Title for the files action"), style: .default, handler: { _ in
+                self.presentDocumentPicker()
             }))
-        }
 
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            alert.addAction(UIAlertAction(title: NSLocalizedString("photo_library_title", comment: "Title for the photo library action"), style: .default, handler: { _ in
-                self.presentImagePicker(source: .photoLibrary)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("cancel_action", tableName: nil, bundle: .main, value: "ยกเลิก", comment: "Title for the cancel action"), style: .cancel, handler: nil))
+
+            self.present(alert, animated: true)
+        } else {
+            let alert = UIAlertController(title: NSLocalizedString("select_source_type", tableName: nil, bundle: .main, value: "Select Source Type", comment: "Title for source selection alert"), message: nil, preferredStyle: .actionSheet)
+
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                alert.addAction(UIAlertAction(title: NSLocalizedString("camera_title", tableName: nil, bundle: .main, value: "Camera", comment: "Title for the camera action"), style: .default, handler: { _ in
+                    self.presentImagePicker(source: .camera)
+                }))
+            }
+
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                alert.addAction(UIAlertAction(title: NSLocalizedString("photo_library_title", tableName: nil, bundle: .main, value: "Photos", comment: "Title for the photo library action"), style: .default, handler: { _ in
+                    self.presentImagePicker(source: .photoLibrary)
+                }))
+            }
+
+            alert.addAction(UIAlertAction(title: NSLocalizedString("files_title", tableName: nil, bundle: .main, value: "Files", comment: "Title for the files action"), style: .default, handler: { _ in
+                self.presentDocumentPicker()
             }))
+
+            alert.addAction(UIAlertAction(title: NSLocalizedString("cancel_action", tableName: nil, bundle: .main, value: "Cancel", comment: "Title for the cancel action"), style: .cancel, handler: nil))
+
+            self.present(alert, animated: true)
         }
-
-        alert.addAction(UIAlertAction(title: NSLocalizedString("files_title", comment: "Title for the files action"), style: .default, handler: { _ in
-            self.presentDocumentPicker()
-        }))
-
-        alert.addAction(UIAlertAction(title: NSLocalizedString("cancel_action", comment: "Title for the cancel action"), style: .cancel, handler: nil))
-
-        self.present(alert, animated: true)
     }
+
     
     private func presentDocumentPicker() {
         let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [UTType.image]) // Only allow images to be selected
@@ -291,8 +318,16 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     
     private func showNextPageWithImage(_ image: UIImage) {
         let memePage = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "memePage") as! MemeViewController
-        memePage.title = "Your Selected Image"
-        memePage.selectedImage = image
+        let locale = Locale.current
+        let languageCode = locale.language.languageCode?.identifier ?? "en"
+
+        if languageCode == "th" {
+            memePage.title = "ภาพที่คุณเลือก"
+            memePage.selectedImage = image
+        } else {
+            memePage.title = "Your Selected Image"
+            memePage.selectedImage = image
+        }
         
         self.navigationController?.pushViewController(memePage, animated: true)
     }

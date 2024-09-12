@@ -59,4 +59,8 @@
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "vLK-jH-oj1"; */
 "vLK-jH-oj1.normalTitle" = "Button";
 
+"select_source_type" = "Select Source Type";
 "camera_title" = "Camera";
+"photo_library_title" = "Photo Library";
+"files_title" = "Files";
+"cancel_action" = "Cancel";
