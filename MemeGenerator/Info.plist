@@ -48,16 +48,6 @@
 			<key>UIApplicationShortcutItemType</key>
 			<string>feedpage</string>
 		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeBookmark</string>
-			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>Old memes</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>History</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>historypage</string>
-		</dict>
 	</array>
 </dict>
 </plist>
