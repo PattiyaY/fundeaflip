@@ -27,6 +27,10 @@ class MemeViewController: UIViewController {
         memeImage.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
+        
+        UILabel.appearance().font = UIFont(name: "Inter", size: 18)
+        UIButton.appearance().titleLabel?.font = UIFont(name: "Inter", size: 16)
+        UITextField.appearance().font = UIFont(name: "Inter", size: 18)
     }
     
     @objc func dismissKeyboard() {

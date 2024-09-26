@@ -38,7 +38,20 @@ class ViewController: UIViewController, UIDocumentPickerDelegate {
             self.collectionView.reloadData()
         }
         
+        for family: String in UIFont.familyNames
+        {
+             print("\(family)")
+             for names: String in   UIFont.fontNames(forFamilyName: family)
+          {
+              print("== \(names)")
+
+          }
+        }
         
+        UILabel.appearance().font = UIFont(name: "Inter", size: 18)
+        UIButton.appearance().titleLabel?.font = UIFont(name: "Inter", size: 16)
+        UITextField.appearance().font = UIFont(name: "Inter", size: 18)
+
     }
     
     // Function to fetch images from Firebase Storage and store them in UserDefaults
@@ -138,7 +151,8 @@ class ViewController: UIViewController, UIDocumentPickerDelegate {
             if let error = error {
                 print("Error adding notification: \(error.localizedDescription)")
             } else {
-                print("Notification scheduled for 1 minute from now.")
+                return
+//                print("Notification scheduled for 1 minute from now.")
             }
         }
     }

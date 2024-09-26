@@ -31,6 +31,24 @@
 		2ED969532C7C712B004BF926 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 2ED969522C7C712B004BF926 /* Base */; };
 		2ED969552C7C712D004BF926 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ED969542C7C712D004BF926 /* Assets.xcassets */; };
 		2ED969582C7C712D004BF926 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 2ED969572C7C712D004BF926 /* Base */; };
+		2EE35FAB2CA478EE0005A8BA /* Inter-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EE35F982CA478EE0005A8BA /* Inter-Black.otf */; };
+		2EE35FAC2CA478EE0005A8BA /* Inter-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EE35F992CA478EE0005A8BA /* Inter-BlackItalic.otf */; };
+		2EE35FAD2CA478EE0005A8BA /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EE35F9A2CA478EE0005A8BA /* Inter-Bold.otf */; };
+		2EE35FAE2CA478EE0005A8BA /* Inter-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EE35F9B2CA478EE0005A8BA /* Inter-BoldItalic.otf */; };
+		2EE35FAF2CA478EE0005A8BA /* Inter-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EE35F9C2CA478EE0005A8BA /* Inter-ExtraBold.otf */; };
+		2EE35FB02CA478EE0005A8BA /* Inter-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EE35F9D2CA478EE0005A8BA /* Inter-ExtraBoldItalic.otf */; };
+		2EE35FB12CA478EE0005A8BA /* Inter-ExtraLight-BETA.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EE35F9E2CA478EE0005A8BA /* Inter-ExtraLight-BETA.otf */; };
+		2EE35FB22CA478EE0005A8BA /* Inter-ExtraLightItalic-BETA.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EE35F9F2CA478EE0005A8BA /* Inter-ExtraLightItalic-BETA.otf */; };
+		2EE35FB32CA478EE0005A8BA /* Inter-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EE35FA02CA478EE0005A8BA /* Inter-Italic.otf */; };
+		2EE35FB42CA478EE0005A8BA /* Inter-Light-BETA.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EE35FA12CA478EE0005A8BA /* Inter-Light-BETA.otf */; };
+		2EE35FB52CA478EE0005A8BA /* Inter-LightItalic-BETA.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EE35FA22CA478EE0005A8BA /* Inter-LightItalic-BETA.otf */; };
+		2EE35FB62CA478EE0005A8BA /* Inter-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EE35FA32CA478EE0005A8BA /* Inter-Medium.otf */; };
+		2EE35FB72CA478EE0005A8BA /* Inter-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EE35FA42CA478EE0005A8BA /* Inter-MediumItalic.otf */; };
+		2EE35FB82CA478EE0005A8BA /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EE35FA52CA478EE0005A8BA /* Inter-Regular.otf */; };
+		2EE35FB92CA478EE0005A8BA /* Inter-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EE35FA62CA478EE0005A8BA /* Inter-SemiBold.otf */; };
+		2EE35FBA2CA478EE0005A8BA /* Inter-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EE35FA72CA478EE0005A8BA /* Inter-SemiBoldItalic.otf */; };
+		2EE35FBB2CA478EE0005A8BA /* Inter-Thin-BETA.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EE35FA82CA478EE0005A8BA /* Inter-Thin-BETA.otf */; };
+		2EE35FBC2CA478EE0005A8BA /* Inter-ThinItalic-BETA.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EE35FA92CA478EE0005A8BA /* Inter-ThinItalic-BETA.otf */; };
 		6C76DD5F2C85D7260015F820 /* MemeTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C76DD5E2C85D7260015F820 /* MemeTemplate.swift */; };
 		6C76DD612C85D72C0015F820 /* MemeTemplatesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C76DD602C85D72C0015F820 /* MemeTemplatesCollectionViewCell.swift */; };
 		6C76DD632C85D7340015F820 /* MemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C76DD622C85D7340015F820 /* MemeViewController.swift */; };
@@ -86,6 +104,24 @@
 		2ED969542C7C712D004BF926 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2ED969572C7C712D004BF926 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2ED969592C7C712D004BF926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EE35F982CA478EE0005A8BA /* Inter-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.otf"; sourceTree = "<group>"; };
+		2EE35F992CA478EE0005A8BA /* Inter-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BlackItalic.otf"; sourceTree = "<group>"; };
+		2EE35F9A2CA478EE0005A8BA /* Inter-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.otf"; sourceTree = "<group>"; };
+		2EE35F9B2CA478EE0005A8BA /* Inter-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BoldItalic.otf"; sourceTree = "<group>"; };
+		2EE35F9C2CA478EE0005A8BA /* Inter-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.otf"; sourceTree = "<group>"; };
+		2EE35F9D2CA478EE0005A8BA /* Inter-ExtraBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBoldItalic.otf"; sourceTree = "<group>"; };
+		2EE35F9E2CA478EE0005A8BA /* Inter-ExtraLight-BETA.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight-BETA.otf"; sourceTree = "<group>"; };
+		2EE35F9F2CA478EE0005A8BA /* Inter-ExtraLightItalic-BETA.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLightItalic-BETA.otf"; sourceTree = "<group>"; };
+		2EE35FA02CA478EE0005A8BA /* Inter-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Italic.otf"; sourceTree = "<group>"; };
+		2EE35FA12CA478EE0005A8BA /* Inter-Light-BETA.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light-BETA.otf"; sourceTree = "<group>"; };
+		2EE35FA22CA478EE0005A8BA /* Inter-LightItalic-BETA.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-LightItalic-BETA.otf"; sourceTree = "<group>"; };
+		2EE35FA32CA478EE0005A8BA /* Inter-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.otf"; sourceTree = "<group>"; };
+		2EE35FA42CA478EE0005A8BA /* Inter-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-MediumItalic.otf"; sourceTree = "<group>"; };
+		2EE35FA52CA478EE0005A8BA /* Inter-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.otf"; sourceTree = "<group>"; };
+		2EE35FA62CA478EE0005A8BA /* Inter-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.otf"; sourceTree = "<group>"; };
+		2EE35FA72CA478EE0005A8BA /* Inter-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBoldItalic.otf"; sourceTree = "<group>"; };
+		2EE35FA82CA478EE0005A8BA /* Inter-Thin-BETA.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin-BETA.otf"; sourceTree = "<group>"; };
+		2EE35FA92CA478EE0005A8BA /* Inter-ThinItalic-BETA.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ThinItalic-BETA.otf"; sourceTree = "<group>"; };
 		6C76DD5E2C85D7260015F820 /* MemeTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTemplate.swift; sourceTree = "<group>"; };
 		6C76DD602C85D72C0015F820 /* MemeTemplatesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTemplatesCollectionViewCell.swift; sourceTree = "<group>"; };
 		6C76DD622C85D7340015F820 /* MemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +198,9 @@
 		2ED9694A2C7C712B004BF926 /* MemeGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				2EE35FAA2CA478EE0005A8BA /* inter */,
+				2EE35FA12CA478EE0005A8BA /* Inter-Light-BETA.otf */,
+				2EE35FA32CA478EE0005A8BA /* Inter-Medium.otf */,
 				2E8C0E002C8D970D006C34A6 /* MemeGenerator.entitlements */,
 				6C76DD5E2C85D7260015F820 /* MemeTemplate.swift */,
 				2ED9694B2C7C712B004BF926 /* AppDelegate.swift */,
@@ -178,6 +217,29 @@
 				2ED969592C7C712D004BF926 /* Info.plist */,
 			);
 			path = MemeGenerator;
+			sourceTree = "<group>";
+		};
+		2EE35FAA2CA478EE0005A8BA /* inter */ = {
+			isa = PBXGroup;
+			children = (
+				2EE35F982CA478EE0005A8BA /* Inter-Black.otf */,
+				2EE35F992CA478EE0005A8BA /* Inter-BlackItalic.otf */,
+				2EE35F9A2CA478EE0005A8BA /* Inter-Bold.otf */,
+				2EE35F9B2CA478EE0005A8BA /* Inter-BoldItalic.otf */,
+				2EE35F9C2CA478EE0005A8BA /* Inter-ExtraBold.otf */,
+				2EE35F9D2CA478EE0005A8BA /* Inter-ExtraBoldItalic.otf */,
+				2EE35F9E2CA478EE0005A8BA /* Inter-ExtraLight-BETA.otf */,
+				2EE35F9F2CA478EE0005A8BA /* Inter-ExtraLightItalic-BETA.otf */,
+				2EE35FA02CA478EE0005A8BA /* Inter-Italic.otf */,
+				2EE35FA22CA478EE0005A8BA /* Inter-LightItalic-BETA.otf */,
+				2EE35FA42CA478EE0005A8BA /* Inter-MediumItalic.otf */,
+				2EE35FA52CA478EE0005A8BA /* Inter-Regular.otf */,
+				2EE35FA62CA478EE0005A8BA /* Inter-SemiBold.otf */,
+				2EE35FA72CA478EE0005A8BA /* Inter-SemiBoldItalic.otf */,
+				2EE35FA82CA478EE0005A8BA /* Inter-Thin-BETA.otf */,
+				2EE35FA92CA478EE0005A8BA /* Inter-ThinItalic-BETA.otf */,
+			);
+			path = inter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,10 +348,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EE35FB12CA478EE0005A8BA /* Inter-ExtraLight-BETA.otf in Resources */,
+				2EE35FAF2CA478EE0005A8BA /* Inter-ExtraBold.otf in Resources */,
+				2EE35FB62CA478EE0005A8BA /* Inter-Medium.otf in Resources */,
+				2EE35FB92CA478EE0005A8BA /* Inter-SemiBold.otf in Resources */,
 				2ED969552C7C712D004BF926 /* Assets.xcassets in Resources */,
+				2EE35FBB2CA478EE0005A8BA /* Inter-Thin-BETA.otf in Resources */,
+				2EE35FBC2CA478EE0005A8BA /* Inter-ThinItalic-BETA.otf in Resources */,
+				2EE35FAC2CA478EE0005A8BA /* Inter-BlackItalic.otf in Resources */,
 				2E8C0E302C8EB530006C34A6 /* Main.storyboard in Resources */,
+				2EE35FB02CA478EE0005A8BA /* Inter-ExtraBoldItalic.otf in Resources */,
+				2EE35FB72CA478EE0005A8BA /* Inter-MediumItalic.otf in Resources */,
 				2E0BC9D12C88C51B004B23C0 /* GoogleService-Info.plist in Resources */,
+				2EE35FB52CA478EE0005A8BA /* Inter-LightItalic-BETA.otf in Resources */,
 				2ED969582C7C712D004BF926 /* Base in Resources */,
+				2EE35FB22CA478EE0005A8BA /* Inter-ExtraLightItalic-BETA.otf in Resources */,
+				2EE35FB42CA478EE0005A8BA /* Inter-Light-BETA.otf in Resources */,
+				2EE35FB82CA478EE0005A8BA /* Inter-Regular.otf in Resources */,
+				2EE35FAD2CA478EE0005A8BA /* Inter-Bold.otf in Resources */,
+				2EE35FAB2CA478EE0005A8BA /* Inter-Black.otf in Resources */,
+				2EE35FBA2CA478EE0005A8BA /* Inter-SemiBoldItalic.otf in Resources */,
+				2EE35FAE2CA478EE0005A8BA /* Inter-BoldItalic.otf in Resources */,
+				2EE35FB32CA478EE0005A8BA /* Inter-Italic.otf in Resources */,
 				2ED969532C7C712B004BF926 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -41,6 +41,10 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         tableView.delegate = self
         tableView.reloadData()
+        
+        UILabel.appearance().font = UIFont(name: "Inter", size: 18)
+        UIButton.appearance().titleLabel?.font = UIFont(name: "Inter", size: 16)
+        UITextField.appearance().font = UIFont(name: "Inter", size: 18)
     }
     
     override func viewWillAppear(_ animated: Bool) {
