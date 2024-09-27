@@ -32,6 +32,7 @@ class MemeViewController: UIViewController {
         UIButton.appearance().titleLabel?.font = UIFont(name: "Inter", size: 16)
         UITextField.appearance().font = UIFont(name: "Inter", size: 18)
     }
+
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
@@ -87,6 +88,7 @@ class MemeViewController: UIViewController {
 
     @IBAction func publishButton(_ sender: Any) {
         progressView.isHidden = false
+        
         guard let combinedImage = renderImageWithText() else {
             print("Failed to create image.")
             return
@@ -94,24 +96,47 @@ class MemeViewController: UIViewController {
         
         let randomID = UUID.init().uuidString
         let uploadRef = Storage.storage().reference(withPath: "memes/\(randomID).jpg")
-        guard let imageData = combinedImage.jpegData(compressionQuality: 0.75) else {return}
+        guard let imageData = combinedImage.jpegData(compressionQuality: 0.75) else { return }
+        
         let uploadMetadata = StorageMetadata.init()
         uploadMetadata.contentType = "image/jpeg"
         
+        // Start upload
         let taskReference = uploadRef.putData(imageData, metadata: uploadMetadata) { (downloadMetadata, error) in
             if let error = error {
-                print("error \(error.localizedDescription)")
+                print("Error: \(error.localizedDescription)")
                 return
             }
-            print("upload completed \(downloadMetadata)")
+            
+            // Upload completed successfully, print metadata and switch to home tab
+            print("Upload completed: \(String(describing: downloadMetadata))")
+            
+            // After successful upload, switch to the home page
+            self.switchToHomeTab()
         }
         
-        taskReference.observe(.progress) {[weak self] (snapshot) in
-            guard let pctThere = snapshot.progress?.fractionCompleted else {return}
-            print("You are \(pctThere) complete")
+        // Monitor upload progress
+        taskReference.observe(.progress) { [weak self] (snapshot) in
+            guard let pctThere = snapshot.progress?.fractionCompleted else { return }
+            print("Upload progress: \(pctThere * 100)%")
             self?.progressView.progress = Float(pctThere)
         }
     }
+
+    // Function to switch to the home tab
+    func switchToHomeTab() {
+        if let tabBarController = self.tabBarController {
+            // Switch to the home tab (index 0, assuming home is at index 0)
+            tabBarController.selectedIndex = 0
+            
+            // Optionally, pop to the root view controller if needed
+            if let navController = tabBarController.viewControllers?[0] as? UINavigationController {
+                navController.popToRootViewController(animated: true)
+            }
+        }
+    }
+
+
     
     @objc func handleRemoveTap(_ sender: UIButton) {
         guard let closeView = sender.superview as? UITextView else { return }
