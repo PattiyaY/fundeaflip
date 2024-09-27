@@ -51,56 +51,69 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewWillAppear(animated)
         
         fetchImagesFromFirebase()
+        print(imagesArray)
         tableView.reloadData()
     }
     
     func fetchImagesFromFirebase() {
         imagesArray.removeAll()
         tableView.reloadData()
-            // Reference to the directory in Firebase Storage containing images
-            let storageRef = Storage.storage().reference(withPath: "memes") // Specify the correct path
-    
-
-            // List all images in the directory
-            storageRef.listAll { [weak self] (result, error) in
-                if let error = error {
-                    print("Error listing files in directory: \(error.localizedDescription)")
-                    return
-                }
-                guard let result = result else { return }
-
-                // Loop through each item in the directory
-                for item in result.items {
-                    // Fetch metadata for each image
-                    item.getMetadata { metadata, error in
+        
+        // Reference to the directory in Firebase Storage containing images
+        let storageRef = Storage.storage().reference(withPath: "memes") // Specify the correct path
+        
+        // List all images in the directory
+        storageRef.listAll { [weak self] (result, error) in
+            if let error = error {
+                print("Error listing files in directory: \(error.localizedDescription)")
+                return
+            }
+            guard let result = result else { return }
+            
+            // Dispatch group to track when all metadata and images are fetched
+            let dispatchGroup = DispatchGroup()
+            
+            // Loop through each item in the directory
+            for item in result.items {
+                dispatchGroup.enter() // Enter the group for each image
+                
+                // Fetch metadata for each image
+                item.getMetadata { metadata, error in
+                    if let error = error {
+                        print("Error fetching metadata: \(error.localizedDescription)")
+                        dispatchGroup.leave()
+                        return
+                    }
+                    
+                    // Extract the creation date from metadata
+                    let createdAt = metadata?.timeCreated
+                    
+                    // Download the image data
+                    item.getData(maxSize: 4 * 1024 * 1024) { [weak self] (data, error) in
                         if let error = error {
-                            print("Error fetching metadata: \(error.localizedDescription)")
-                            return
+                            print("Error downloading image: \(error.localizedDescription)")
+                        } else if let data = data, let image = UIImage(data: data) {
+                            // Create a MemeImage object with the image and its creation date
+                            let memeImage = MemeImage(image: image, createdAt: createdAt)
+                            
+                            self?.imagesArray.append(memeImage)
                         }
-                        
-                        // Extract the creation date from metadata
-                        let createdAt = metadata?.timeCreated
-
-                        // Download the image data
-                        item.getData(maxSize: 4 * 1024 * 1024) { [weak self] (data, error) in
-                            if let error = error {
-                                print("Error downloading image: \(error.localizedDescription)")
-                            } else if let data = data, let image = UIImage(data: data) {
-                                // Create a MemeImage object with the image and its creation date
-                                let memeImage = MemeImage(image: image, createdAt: createdAt)
-                                
-                                self?.imagesArray.append(memeImage)
-                                
-                                // Reload table view or collection view after adding new images
-                                DispatchQueue.main.async {
-                                    self?.tableView.reloadData() // or collectionView.reloadData()
-                                }
-                            }
-                        }
+                        dispatchGroup.leave() // Leave the group after image and metadata are processed
                     }
                 }
             }
+            
+            // Wait for all images and metadata to be fetched
+            dispatchGroup.notify(queue: .main) {
+                // Sort imagesArray by createdAt date
+                self?.imagesArray.sort(by: { ($0.createdAt ?? Date()) > ($1.createdAt ?? Date()) })
+                
+                // Reload table view or collection view after sorting images
+                self?.tableView.reloadData() // or collectionView.reloadData()
+            }
+        }
     }
+
 
     // MARK: - UITableViewDataSource
 
