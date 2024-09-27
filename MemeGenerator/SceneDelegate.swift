@@ -47,28 +47,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
     func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         print("item type : \(shortcutItem.type) ")
-        switch shortcutItem.type {
-        case "homepage":
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
-                window?.rootViewController = homeVC
-            break
-        case "feedpage":
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let feedVC = storyboard.instantiateViewController(withIdentifier: "FeedViewController")
-                window?.rootViewController = feedVC
-            break
-        case "historypage":
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let historyVC = storyboard.instantiateViewController(withIdentifier: "HistoryViewController")
-                window?.rootViewController = historyVC
-            break
-        default:
-            break
+        
+        if let tabBarController = window?.rootViewController as? UITabBarController {
+            switch shortcutItem.type {
+            case "homepage":
+                tabBarController.selectedIndex = 0 // Assuming home is the first tab
+            case "feedpage":
+                tabBarController.selectedIndex = 1 // Assuming feed is the second tab
+            default:
+                break
+            }
         }
     }
+
 }
 

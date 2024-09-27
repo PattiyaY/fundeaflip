@@ -38,16 +38,6 @@ class ViewController: UIViewController, UIDocumentPickerDelegate {
             self.collectionView.reloadData()
         }
         
-        for family: String in UIFont.familyNames
-        {
-             print("\(family)")
-             for names: String in   UIFont.fontNames(forFamilyName: family)
-          {
-              print("== \(names)")
-
-          }
-        }
-        
         UILabel.appearance().font = UIFont(name: "Inter", size: 18)
         UIButton.appearance().titleLabel?.font = UIFont(name: "Inter", size: 16)
         UITextField.appearance().font = UIFont(name: "Inter", size: 18)

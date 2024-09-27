@@ -182,22 +182,26 @@ print(languageCode)
 
     
     @IBAction func saveButtonClicked(_ sender: Any) {
-        // Get the first visible indexPath (image currently at the top of the table)
-        if let firstVisibleIndexPath = tableView.indexPathsForVisibleRows?.first{
-            // Get the image from the imagesArray at that index
-            let memeImage = imagesArray[firstVisibleIndexPath.row].image
+        // Check if the sender is a button and find its superview (the cell)
+        if let button = sender as? UIButton,
+           let cell = button.superview?.superview as? UITableViewCell,
+           let indexPath = tableView.indexPath(for: cell) {
             
-            // Save the visible image to Photos
+            // Get the image for the corresponding indexPath from your images array
+            let memeImage = imagesArray[indexPath.row].image
+            
+            // Save the image to Photos
             UIImageWriteToSavedPhotosAlbum(memeImage, nil, nil, nil)
             print("Image saved successfully!")
+            
+            // Show a confirmation alert
             let alert = UIAlertController(title: "Image", message: "Image saved successfully!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-
             self.present(alert, animated: true, completion: nil)
-
         } else {
-            print("No visible image found.")
+            print("Failed to identify the cell.")
         }
     }
+
 
 }
